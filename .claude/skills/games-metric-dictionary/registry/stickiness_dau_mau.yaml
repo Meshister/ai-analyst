@@ -1,0 +1,45 @@
+schema_version: 1
+
+name: stickiness_dau_mau
+display_name: "Stickiness (DAU/MAU)"
+aliases: [DAU/MAU, DAU vs MAU]
+definition: >-
+  DAU on day d divided by rolling MAU on the same day: the share of the month's
+  players who played today. For a period summary, use mean DAU over mean MAU.
+grain: day
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "Summaries over a period are a ratio of means, not a mean of daily ratios; the two differ when DAU and MAU move together."
+  - "Low stickiness is normal for weekly-cadence or premium story games; compare only within a profile."
+  - "Some docs call Dn retention 'stickiness'. That is retention, not this metric."
+
+formula: "stickiness_d = DAU_d / MAU_rolling_d; period summary = mean(DAU) / mean(MAU_rolling)"
+parameters:
+  window_days: {type: int, min: 1, default: 30}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: "null whenever dau or mau_rolling is null for day d."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, operational]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_strict, dau, mau_rolling]
+sources:
+  - ref: gameanalytics-metrics
+    note: "DAU vs. MAU: share of last-30-days users who engaged today, reported daily"
+  - ref: games-analyst-plan
+    note: "Correction #6: stickiness is DAU/MAU, not Dn retention"
+corrections:
+  - "Cheat sheet lists '1, 3, 7, 10, 30-day stickiness'. Those are Dn retention values, not stickiness."

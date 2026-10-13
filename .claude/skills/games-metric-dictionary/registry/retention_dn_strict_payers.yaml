@@ -1,0 +1,46 @@
+schema_version: 1
+
+name: retention_dn_strict_payers
+display_name: "Day-N retention of payers (strict)"
+aliases: [payer retention]
+definition: >-
+  Strict day-n retention among first-session cohort members who made at least
+  one purchase by day payer_by_day (day 0 = first session day).
+grain: cohort_day
+status: active
+owner: games-monetization
+min_value: 0
+max_value: 1
+caveats:
+  - "Buying requires playing, so payers are pre-selected for engagement. Payer retention above non-payer retention is not evidence that paying causes retention."
+  - "Base-game purchases are excluded from the payer test; on a premium title every player bought the game, so counting it makes everyone a payer."
+  - "Fix payer_by_day before looking at results. Choosing it after seeing the curves is a forking-paths error."
+
+formula: "R_n_payers = payers_active_on_day_n / payers, payers = cohort members with a purchase on days 0..payer_by_day"
+parameters:
+  n: {type: int, min: 1, rule: "> payer_by_day"}
+  payer_by_day: {type: int, min: 0}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until day n has fully elapsed for every cohort member, using the
+  day-completion rule of retention_dn_strict.
+retention_type: strict
+revenue_scope:
+  streams: [iap, dlc, season_pass, battle_pass, subscription]
+  basis: gross
+payer_window: cohort_by_day_n
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_strict, payer_conversion_cohort_day_n]
+sources:
+  - ref: games-analyst-plan
+    note: "Monetization Analyst, spender-segments: payer retention"

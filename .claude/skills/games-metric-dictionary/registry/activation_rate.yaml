@@ -1,0 +1,41 @@
+schema_version: 1
+
+name: activation_rate
+display_name: "Activation rate"
+aliases: [owner activation, play-through of ownership]
+definition: >-
+  Share of players who became owners of a title (purchase, gift, bundle key) who
+  launched it at least once within window_days of becoming an owner.
+grain: title_platform_cohort
+status: draft
+owner: games-premium-sales
+min_value: 0
+max_value: 1
+caveats:
+  - "Needs a join between ownership (platform entitlement) and telemetry (first session) on the same key; unmatched owners count as not activated, so state the match rate."
+  - "Pre-orders become owners before release; measure their window from release day, not purchase day."
+  - "Subscription-library access is not ownership; exclude subscription-service players from both numerator and denominator."
+
+formula: "activation = |owners with first_session within window_days of entitlement| / |owners|"
+parameters:
+  window_days: {type: int, min: 1, default: 30}
+day_boundary:
+  supported: [utc, reporting_tz]
+  default: utc
+maturity_rule: "null until window_days have elapsed for the youngest owner in the cohort."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: entitlement
+  player_key: platform_account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [units_sold, retention_dn_strict]
+sources:
+  - ref: user-decision
+    note: "2026-09-29: entitlement vs first session gap defined as its own metric during the identity-basis discussion. Draft."

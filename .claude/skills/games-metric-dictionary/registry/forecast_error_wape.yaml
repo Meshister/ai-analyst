@@ -1,0 +1,38 @@
+schema_version: 1
+
+name: forecast_error_wape
+display_name: "Forecast error (WAPE)"
+aliases: [forecast accuracy, WAPE]
+definition: >-
+  Weighted absolute percentage error of forecasts made a fixed lead time before
+  the period: total absolute miss divided by total actuals, across titles.
+grain: portfolio_period
+status: draft
+owner: games-forecasting-slate
+min_value: 0
+caveats:
+  - "Lower is better; 'accuracy' as 1 - WAPE can go negative. Report the error, not an accuracy score."
+  - "State the forecast lead time (e.g. forecasts locked 90 days before release). Forecasts revised close to the period look accurate for the wrong reason."
+  - "WAPE hides direction. Report bias (sum of forecast - actual over sum of actuals) alongside it, as a separate metric."
+
+formula: "WAPE = sum_i |actual_i - forecast_i| / sum_i actual_i, forecasts locked lead_time_days before each period"
+parameters:
+  lead_time_days: {type: int, min: 0}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until actuals for every forecast in the set are final."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: process
+  scope: generic
+  horizon: [strategic]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [forecast_bias]
+sources:
+  - ref: games-analyst-plan
+    note: "Portfolio Performance: commercial-scorecard (forecast accuracy); Forecasting: forecast-accountability. Draft."

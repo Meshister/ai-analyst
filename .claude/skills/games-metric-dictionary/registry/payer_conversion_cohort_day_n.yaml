@@ -1,0 +1,48 @@
+schema_version: 1
+
+name: payer_conversion_cohort_day_n
+display_name: "Cumulative payer conversion by day N"
+aliases: [install-to-payer conversion, converted users rate]
+definition: >-
+  Share of a first-session cohort that has made at least one purchase on any day
+  from day 0 to day n.
+grain: cohort_day
+status: active
+owner: games-monetization
+min_value: 0
+max_value: 1
+caveats:
+  - "Not the same metric as daily or monthly payer conversion (payer_conversion_period)."
+  - "Base-game purchases are excluded; on a premium title every player bought the game."
+  - "Never falls as n grows. Compare cohorts only at the same n."
+
+formula: "conv_n = |cohort members with >= 1 purchase on days 0..n| / cohort_size"
+parameters:
+  n: {type: int, min: 0}
+  revenue_scope: {type: revenue_scope, default: {streams: [iap, dlc, season_pass, battle_pass, subscription], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until day n has fully elapsed for every cohort member, using the
+  day-completion rule of retention_dn_strict.
+retention_type: not_applicable
+revenue_scope:
+  streams: [iap, dlc, season_pass, battle_pass, subscription]
+  basis: gross
+payer_window: cohort_by_day_n
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [payer_conversion_period, retention_dn_strict_payers]
+sources:
+  - ref: gameanalytics-metrics
+    note: "Converted users: unique users who converted to paying since install"
+  - ref: games-analyst-plan
+    note: "Correction #5: or cumulative payer rate by day N of a cohort"

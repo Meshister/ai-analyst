@@ -1,0 +1,37 @@
+schema_version: 1
+
+name: discount_depth
+display_name: "Discount depth"
+aliases: [discount %, markdown depth]
+definition: >-
+  How far a SKU's sale price sits below its base price in the same region and
+  currency. Across SKUs or regions, weight by units sold.
+grain: sku_region_day
+status: draft
+owner: games-premium-sales
+min_value: 0
+max_value: 1
+caveats:
+  - "Compare against the base price in the same region and currency; regional base prices differ, so a global 'list price' gives the wrong depth."
+  - "A summary across SKUs is units-weighted; a simple average overweights SKUs nobody bought."
+  - "Bundle discounts are not SKU discounts; measure them on the bundle, not on the titles inside it."
+
+formula: "depth = 1 - sale_price / base_price (per SKU, region, day); summary = sum(units * depth) / sum(units)"
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "Price is known in advance; the units-weighted summary is null until units_sold for the period is available."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [tactical, operational]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [discount_lift_net, average_selling_price]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium Sales Analyst: pricing-discount. Draft: no reference doc covers premium catalog metrics."

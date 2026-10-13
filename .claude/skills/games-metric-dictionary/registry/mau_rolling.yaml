@@ -1,0 +1,42 @@
+schema_version: 1
+
+name: mau_rolling
+display_name: "Monthly active users (rolling)"
+aliases: [MAU, rolling MAU, MAU last 30 days]
+definition: >-
+  Count of distinct players with at least one session in the window_days days
+  ending on (and including) day d. Reported daily.
+grain: day
+status: active
+owner: games-engagement-growth
+min_value: 0
+caveats:
+  - "Not the calendar-month MAU some reports use; that is mau_calendar, a separate metric."
+  - "Cross-platform players must be deduplicated by account across the whole window, not per day."
+  - "Exclude bots and test accounts before counting; say which filter was used."
+
+formula: "MAU_d = |players with >= 1 session on any day in [d - window_days + 1, d]|"
+parameters:
+  window_days: {type: int, min: 1, default: 30}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null until day d has fully elapsed; also null until window_days days of data
+  exist, since a shorter window undercounts.
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [operational, strategic]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [mau_calendar, dau]
+sources:
+  - ref: gameanalytics-metrics
+    note: "MAU (rolling 30 days) and MAU (calendar) are listed as separate metrics"

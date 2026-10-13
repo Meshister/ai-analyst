@@ -1,0 +1,45 @@
+schema_version: 1
+
+name: retention_period
+display_name: "Period retention"
+aliases: [period-over-period retention, existing-base retention]
+definition: >-
+  Share of players active in the previous period who are also active in the
+  current period. New players in the current period are excluded by construction.
+grain: period
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "This is the retention of the existing base, not new-player Dn retention; label which one every figure uses."
+  - "Calendar months run 28-31 days, which moves the rate by itself. Prefer fixed-length periods (e.g. 28 days)."
+  - "Equals 1 - churn_rate for the same periods and definitions; report one, not both as separate findings."
+
+formula: "retention_period_t = |active_in_t-1 AND active_in_t| / |active_in_t-1|"
+parameters:
+  period_length_days: {type: int, min: 1, default: 28}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until the last day of period t has fully elapsed, using the
+  day-completion rule of retention_dn_strict.
+retention_type: period
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, operational]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_strict, retention_dn_bracket, churn_rate]
+sources:
+  - ref: games-analyst-plan
+    note: "Correction #3: keep the cheat sheet's period retention, named as such; new players get cohort Dn"
+corrections:
+  - "Cheat sheet writes period retention as (end - new) / start. That counts reactivated players (inactive in t-1, back in t) as retained. The intersection formula above does not."

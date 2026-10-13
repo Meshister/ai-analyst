@@ -1,0 +1,39 @@
+schema_version: 1
+
+name: wishlist_conversion_rate
+display_name: "Wishlist conversion rate"
+aliases: [wishlist conversion]
+definition: >-
+  Share of a title's outstanding wishlists at a reference date (usually release)
+  that turned into a purchase within window_days.
+grain: title_platform
+status: draft
+owner: games-premium-sales
+min_value: 0
+max_value: 1
+caveats:
+  - "Wishlists age: old wishlists convert far less than recent ones. State the reference date and report wishlist age where available."
+  - "Purchases by non-wishlisters are not in this metric; wishlists predict but do not bound sales."
+  - "Storefronts report wishlist conversions in aggregate; the window and deletion rules are the platform's, so compare only within one platform."
+
+formula: "conversion = purchases_by_wishlisters in [ref_date, ref_date + window_days] / outstanding_wishlists at ref_date"
+parameters:
+  window_days: {type: int, min: 1, default: 30}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until window_days after the reference date have elapsed and the platform report covering them has posted."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [pc, console]
+distinct_from: [units_sold]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off core metrics: wishlist conversion; Forecasting: launch-forecast from wishlists. Draft."

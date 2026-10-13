@@ -1,0 +1,41 @@
+schema_version: 1
+
+name: completion_rate
+display_name: "Completion rate"
+aliases: [story completion, credits rate]
+definition: >-
+  Share of a first-session cohort that reaches the end of the main story (first
+  credits) within window_days of their first session.
+grain: title_cohort
+status: draft
+owner: games-core-gameplay
+min_value: 0
+max_value: 1
+caveats:
+  - "Define 'completed' by one telemetry event (credits roll, final chapter complete); achievement-based proxies miss players who play offline or hide achievements."
+  - "Multiple endings or a post-game: completion is the first ending reached, not all endings."
+  - "The window must fit the game's length; a 60-hour RPG and a 6-hour narrative game need different windows."
+
+formula: "completion = |cohort members reaching first credits within window_days| / cohort_size"
+parameters:
+  window_days: {type: int, min: 1, default: 90}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: "null (never 0) until window_days have elapsed for every cohort member."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: gameplay
+  scope: genre
+  horizon: [strategic, tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [activation_rate, retention_dn_strict]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off core metrics: completion and chapter drop-off; genre modifier: story games add completion funnels. Draft."

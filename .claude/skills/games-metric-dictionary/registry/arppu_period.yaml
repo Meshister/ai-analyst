@@ -1,0 +1,43 @@
+schema_version: 1
+
+name: arppu_period
+display_name: "Average revenue per paying user (period)"
+aliases: [ARPPU]
+definition: >-
+  Revenue booked in a period divided by the number of distinct players who paid
+  in that period.
+grain: period
+status: active
+owner: games-monetization
+min_value: 0
+caveats:
+  - "Payers here are players who paid in this period, not everyone who has ever paid."
+  - "Extremely skewed: a few whales set the mean. Report the median and top-1% share alongside it."
+  - "ARPPU rising while conversion falls usually means fewer, heavier payers, not healthier monetization."
+
+formula: "ARPPU_t = revenue_t / |players with >= 1 purchase in period t|"
+parameters:
+  period_length_days: {type: int, min: 1, default: 30}
+  revenue_scope: {type: revenue_scope, default: {streams: [iap], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: "null until the last day of the period has elapsed and its revenue has posted."
+retention_type: not_applicable
+revenue_scope:
+  streams: [iap]
+  basis: gross
+payer_window: period
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [arpu_period, arpdau]
+sources:
+  - ref: gameanalytics-metrics
+    note: "ARPPU: IAP revenue / active users who paid at least once in the period"

@@ -1,0 +1,36 @@
+schema_version: 1
+
+name: lifecycle_decay_rate
+display_name: "Lifecycle decay rate"
+aliases: [sales decay, lifecycle curve]
+definition: >-
+  Month-over-month fall in a title's net units by months since release, computed
+  on months with no promotion so the curve shows underlying demand.
+grain: title_month_since_release
+status: draft
+owner: games-premium-sales
+max_value: 1
+caveats:
+  - "Promotion months dominate a premium title's later life. Exclude them (or model them) or the curve shows the sale calendar, not decay."
+  - "Months since release are counted per platform and region; ports and regional launches restart the clock."
+  - "Negative values (growth) are real after featuring, a sequel announcement or a streamer moment; do not clip them."
+
+formula: "decay_m = 1 - units_m / units_{m-1}, m = months since release, using promotion-free months only"
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until month m has ended and its statements have posted; null for any month flagged as a promotion month."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [units_sold, back_catalog_share]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off core metrics: lifecycle decay; Forecasting: catalog-baseline (decay curves plus the sale calendar). Draft."

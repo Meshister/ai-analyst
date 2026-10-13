@@ -1,0 +1,42 @@
+schema_version: 1
+
+name: share_of_catalog_earning
+display_name: "Share of catalog earning"
+aliases: [earning titles share]
+definition: >-
+  Share of titles in the catalog whose net revenue in the period is at or above
+  min_net_revenue, in the reporting currency.
+grain: portfolio_period
+status: draft
+owner: games-portfolio-performance
+min_value: 0
+max_value: 1
+caveats:
+  - "The threshold must be stated; there is no meaningful default. 'Earning' at $1 and at $10,000 a month are different health signals."
+  - "Count titles, not SKUs; editions and platforms of one title are one title."
+  - "Titles delisted during the period stay in the denominator for that period."
+
+formula: "share_t = |titles with net_revenue_t >= min_net_revenue| / |titles in catalog during t|"
+parameters:
+  min_net_revenue: {type: float, min: 0}
+  period_length_days: {type: int, min: 1, default: 30}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until every title's statements for the period have posted."
+retention_type: not_applicable
+revenue_scope:
+  streams: [base_game, dlc, season_pass]
+  basis: net_all
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [back_catalog_share]
+sources:
+  - ref: games-analyst-plan
+    note: "Portfolio Performance: commercial-scorecard (share of catalog earning). Draft."

@@ -1,0 +1,45 @@
+schema_version: 1
+
+name: arpu_period
+display_name: "Average revenue per active user (period)"
+aliases: [ARPU, monthly ARPU]
+definition: >-
+  Revenue booked in a period divided by the number of distinct players active in
+  that period, for the revenue scope stated in the output.
+grain: period
+status: active
+owner: games-monetization
+min_value: 0
+caveats:
+  - "Denominator is distinct actives in the period, not the sum of daily DAU and not all-time installs; those can differ tenfold."
+  - "Revenue scope must be labeled (IAP, ads, total; gross or net)."
+  - "Period length changes the value; compare only equal periods."
+
+formula: "ARPU_t = revenue_t / |players active in period t|"
+parameters:
+  period_length_days: {type: int, min: 1, default: 30}
+  revenue_scope: {type: revenue_scope, default: {streams: [iap, ads], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: "null until the last day of the period has elapsed and its revenue has posted."
+retention_type: not_applicable
+revenue_scope:
+  streams: [iap, ads]
+  basis: gross
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [arpdau, arppu_period]
+sources:
+  - ref: games-analyst-plan
+    note: "Correction #5: always per active user in a stated period"
+corrections:
+  - "Game Analytics doc and cheat sheet divide by 'total users' with no period or denominator rule. GameAnalytics divides IAP revenue by a daily-active count. This uses distinct actives in the period."

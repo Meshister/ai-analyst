@@ -1,0 +1,44 @@
+schema_version: 1
+
+name: discount_lift_net
+display_name: "Discount lift, net of post-sale dip"
+aliases: [sale lift, promotion lift]
+definition: >-
+  Extra units a discount produced over the sale and post-sale windows combined,
+  relative to what the title would have sold at its pre-sale rate, expressed as a
+  share of expected sale-window units.
+grain: title_region_promotion
+status: draft
+owner: games-premium-sales
+caveats:
+  - "Storefront-wide sale events (seasonal sales, publisher weeks) lift traffic whatever your discount is. Separate the event effect before crediting the discount."
+  - "Announced sales depress units just before they start; exclude that stretch from the baseline or it inflates the lift."
+  - "Ignoring the post-sale dip overstates lift. That is the whole reason for the 'net'; the gross version is a different metric."
+
+formula: >-
+  baseline_rate = units in [start - pre_window_days, start - 1] / pre_window_days;
+  incremental = (units_sale + units_post) - baseline_rate * (sale_days + post_window_days);
+  lift_net = incremental / (baseline_rate * sale_days)
+parameters:
+  pre_window_days: {type: int, min: 7, default: 28}
+  post_window_days: {type: int, min: 1, default: 14}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: >-
+  null until post_window_days after the sale have elapsed and their statements
+  posted; provisional until the refund window for sale-period units has closed.
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [post_sale_dip, discount_depth, promotion_roi, discount_revenue_lift_net]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off traps: discount lift that is really a storefront sale event; post-sale dip ignored. Draft: no reference doc covers premium catalog metrics."

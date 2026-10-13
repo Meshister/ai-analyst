@@ -1,0 +1,46 @@
+schema_version: 1
+
+name: payer_conversion_period
+display_name: "Payer conversion (period)"
+aliases: [conversion rate, daily conversion, payer rate]
+definition: >-
+  Share of players active in a period who made at least one purchase in that
+  period. With a one-day period this is GameAnalytics' "conversion rate".
+grain: period
+status: active
+owner: games-monetization
+min_value: 0
+max_value: 1
+caveats:
+  - "Not the same metric as install-to-payer conversion (payer_conversion_cohort_day_n); the word 'conversion' covers both."
+  - "Item-level purchase rates are shares of payers, and none can exceed this overall rate for the same period."
+  - "Period length changes the value; a daily rate is far lower than a monthly one."
+
+formula: "conversion_t = |players with >= 1 purchase in t| / |players active in t|"
+parameters:
+  period_length_days: {type: int, min: 1, default: 1}
+  revenue_scope: {type: revenue_scope, default: {streams: [iap], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: "null until the last day of the period has elapsed and its purchases have posted."
+retention_type: not_applicable
+revenue_scope:
+  streams: [iap]
+  basis: gross
+payer_window: period
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [tactical, operational]
+  business_model: [f2p_live, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [payer_conversion_cohort_day_n]
+sources:
+  - ref: gameanalytics-metrics
+    note: "Conversion rate: percentage of daily active users who made a purchase, reported per day"
+  - ref: games-analyst-plan
+    note: "Correction #5 and contradictory ranges: item rates are shares of payers and cannot exceed the payer rate"

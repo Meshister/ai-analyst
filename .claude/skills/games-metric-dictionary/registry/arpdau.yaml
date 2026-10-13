@@ -1,0 +1,48 @@
+schema_version: 1
+
+name: arpdau
+display_name: "Average revenue per daily active user (ARPDAU)"
+aliases: [ARPDAU, revenue per DAU]
+definition: >-
+  Revenue booked on day d divided by DAU on day d, for the revenue scope stated
+  in the output.
+grain: day
+status: active
+owner: games-monetization
+min_value: 0
+caveats:
+  - "Revenue scope must be labeled. GameAnalytics' ARPDAU and ARPU are IAP only and gross; a total-revenue ARPDAU (IAP + ads) is a different number."
+  - "Revenue = DAU x ARPDAU is an identity, not a model. To explain a change, use the revenue bridge, and sum daily products rather than multiplying averages."
+  - "Whales dominate the mean; report payer concentration alongside it."
+
+formula: "ARPDAU_d = revenue_d / DAU_d"
+parameters:
+  revenue_scope: {type: revenue_scope, default: {streams: [iap, ads], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null until day d has fully elapsed and revenue for day d has posted (store and
+  ad-network revenue can arrive days late); label late-posting revenue as provisional.
+retention_type: not_applicable
+revenue_scope:
+  streams: [iap, ads]
+  basis: gross
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [operational, tactical]
+  business_model: [f2p_live, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [arpu_period, arppu_period]
+sources:
+  - ref: gameanalytics-metrics
+    note: "ARPDAU (IAP) (legacy): IAP revenue sum / DAU, reported daily"
+  - ref: games-analyst-plan
+    note: "Correction #8: Revenue = DAU x ARPDAU is an identity; use the bridge"
+corrections:
+  - "GameAnalytics labels ARPDAU and ARPU without stating they are IAP-only and gross; the scope is stated explicitly here and ad revenue (ILRD) is a separate stream."

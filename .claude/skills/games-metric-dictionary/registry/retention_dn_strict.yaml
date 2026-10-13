@@ -1,0 +1,53 @@
+schema_version: 1
+
+# --- upstream fields: metric_validator reads these ---
+name: retention_dn_strict
+display_name: "Day-N retention (strict)"
+definition: >-
+  Share of a first-session cohort that plays on exactly day n after their
+  first session date (day 0 = first session day). A player counts on day n
+  whatever they did on other days.
+grain: cohort_day
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "Reinstalls and new accounts on a known device or player enter as new cohort members unless identity is deduplicated; this inflates cohort size and depresses R_n."
+  - "UTC day boundary falls at 5pm Pacific (4pm in winter), inside evening play: one NA evening session can span two UTC days, inflating strict Dn for NA players relative to EU. Compare regions on player_local, or label the bias."
+  - "Strict counts only the exact day n, so it understates engagement for low-frequency play (weekend players hit D7 only when the weekday lines up). Use rolling or bracket retention for low-cadence premium titles."
+
+# --- games fields: our schema test will enforce these ---
+formula: "R_n = active_on_day_n / cohort_size"
+parameters:
+  n: {type: int, min: 1}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until day n has fully elapsed for every cohort member.
+  utc / reporting_tz: available once day (cohort_date + n) has ended in that timezone.
+  player_local: available ~12 hours after the UTC midnight that follows day (cohort_date + n),
+  because one player-local day spans ~50 UTC hours; mark the value immature until then.
+retention_type: strict
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_rolling, retention_dn_bracket, retention_period, churn_rate, retention_dn_strict_payers]
+sources:
+  - ref: ovans-retention
+    note: "Strict DnR = DAU_n / DAU_0, cohort keyed on first-session date; null until fully baked (p.3)"
+  - ref: gameanalytics-metrics
+    note: "Retention row: strict (exact day N only)"
+  - ref: drachen-ch2
+    note: "family=customer (§2.1.5); scope=generic (§2.1.5); horizon from strategic/tactical/operational analytics (§2.3.1)"
+corrections:
+  - "Handoff fixture wrote DnR = DAU_n / installs; Ovans' 'install date' is the first-session date (p.3). Denominator is the first-session cohort."

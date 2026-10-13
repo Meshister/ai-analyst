@@ -1,0 +1,42 @@
+schema_version: 1
+
+name: player_duration_n
+display_name: "Player duration by day N"
+aliases: [PD_n, expected days played]
+definition: >-
+  Expected number of distinct days a new player plays within their first n days
+  after first session: the sum of strict retention from day 0 to day n.
+grain: cohort
+status: active
+owner: games-engagement-growth
+min_value: 1
+caveats:
+  - "A discrete sum over days, not an integral of the curve; the two differ most at small n."
+  - "Not average lifetime: a heavy-tailed curve has an unstable mean. Report PD at a fixed n (e.g. 30, 90, 365)."
+  - "From observed data every R_i for i <= n must be mature; from a fitted curve, state the curve and whether a terminal day was used."
+
+formula: "PD_n = sum_{i=0..n} R_i, with R_0 = 1 (helper: helpers.games.metrics.player_duration)"
+parameters:
+  n: {type: int, min: 0}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  From observed retention: null (never 0) if any R_i for i <= n is null. From a
+  fitted curve: always computable, labeled as modeled.
+retention_type: strict
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [ltv_h, retention_dn_strict]
+sources:
+  - ref: ovans-retention
+    note: "Player duration = sum of the retention curve from day 0 to n; PD_30 = 5.021 for 0.372 n^-0.442 (p.17)"

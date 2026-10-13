@@ -1,0 +1,51 @@
+schema_version: 1
+
+name: ltv_h
+display_name: "Lifetime value over horizon H"
+aliases: [LTV, cohort LTV]
+definition: >-
+  Expected revenue (or profit, with margin < 1) per first-session cohort member
+  over days 0 to H: the sum over days of retention times revenue per retained
+  player that day.
+grain: cohort
+status: active
+owner: games-monetization
+min_value: 0
+caveats:
+  - "ARPDAU_d must be revenue per retained cohort member on day d, not the game-wide ARPDAU; veterans spend differently from new players."
+  - "Always state H. 'Lifetime' without a horizon relies on a heavy-tailed mean and is unstable."
+  - "margin = 1 gives revenue LTV. Profit needs margin after platform fees (and refunds and tax, per the revenue basis); label which one."
+
+formula: "LTV_H = margin * sum_{d=0..H} R_d * ARPDAU_d (helper: helpers.games.metrics.ltv)"
+parameters:
+  horizon_days: {type: int, min: 0, default: 365}
+  margin: {type: float, min: 0, max: 1, default: 1.0}
+  revenue_scope: {type: revenue_scope, default: {streams: [iap, ads], basis: gross}}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  From observed data: null if any R_d or ARPDAU_d for d <= H is null. From a
+  fitted retention curve and modeled ARPDAU: computable, labeled as modeled.
+retention_type: strict
+revenue_scope:
+  streams: [iap, ads]
+  basis: gross
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [player_duration_n, arpu_period]
+sources:
+  - ref: games-analyst-plan
+    note: "Correction #4: LTV_H = m * sum_{d=0..H} R_d * ARPDAU_d over a fixed horizon"
+  - ref: ovans-retention
+    note: "LTV_n = PD(n) x ARPDAU when ARPDAU is flat (p.18)"
+corrections:
+  - "Cheat sheet defines LTV as ARPU x average lifespan and calls it net profit. That gives revenue, not profit, mixes units, and relies on an unstable mean lifespan."

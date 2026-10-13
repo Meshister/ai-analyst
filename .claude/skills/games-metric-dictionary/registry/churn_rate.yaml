@@ -1,0 +1,46 @@
+schema_version: 1
+
+name: churn_rate
+display_name: "Churn rate"
+aliases: [player churn]
+definition: >-
+  Share of players active in the previous period who have no session in the
+  current period. New players are excluded; the inactivity window is the period
+  length and must be stated.
+grain: period
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "Measured on the established base, it is not comparable to new-player D30 retention; the docs' '<15% monthly churn' and 'D30 of 10-15%' can both hold."
+  - "The window decides the number: 7-day churn and 28-day churn of the same game differ several-fold. State it in every output."
+  - "A churned player can return later; churn here is inactivity in one period, not permanent loss."
+
+formula: "churn_t = |active_in_t-1 AND NOT active_in_t| / |active_in_t-1| = 1 - retention_period_t"
+parameters:
+  period_length_days: {type: int, min: 1, default: 28}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until the last day of period t has fully elapsed, using the
+  day-completion rule of retention_dn_strict.
+retention_type: period
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, operational]
+  business_model: [f2p_live, premium_live, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_period, subscription_churn_rate]
+sources:
+  - ref: games-analyst-plan
+    note: "Correction #2: churn = players active in t-1 with no session in t, over players active in t-1"
+corrections:
+  - "Cheat sheet writes churn as (start - end) / start: the net change in player count. New installs offset losses and it goes negative when the game grows."

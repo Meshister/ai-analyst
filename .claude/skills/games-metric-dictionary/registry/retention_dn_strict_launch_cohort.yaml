@@ -1,0 +1,45 @@
+schema_version: 1
+
+name: retention_dn_strict_launch_cohort
+display_name: "Day-N retention, launch cohort (strict)"
+aliases: [golden cohort retention, launch-week cohort retention]
+definition: >-
+  Strict day-n retention for players whose first session falls within the first
+  launch_window_days days of the title's release (day 0 = first session day).
+grain: cohort_day
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "Launch cohorts self-select the most committed players (pre-orders, franchise fans), so their retention is not a benchmark for later cohorts."
+  - "Release date differs by region, platform and early-access edition. Set the launch window per region and platform, and state which date was used."
+  - "Reinstalls and new accounts on a known player enter as new cohort members unless identity is deduplicated; this inflates cohort size and depresses R_n."
+
+formula: "R_n = active_on_day_n / cohort_size, cohort = first_session within [release_date, release_date + launch_window_days - 1]"
+parameters:
+  n: {type: int, min: 1}
+  launch_window_days: {type: int, min: 1, default: 7}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until day n has fully elapsed for the youngest cohort member
+  (first session on the last day of the launch window), using the day-completion
+  rule of retention_dn_strict.
+retention_type: strict
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_strict]
+sources:
+  - ref: user-decision
+    note: "Golden cohort defined by the user on 2026-09-29: players who started in the title's launch week"

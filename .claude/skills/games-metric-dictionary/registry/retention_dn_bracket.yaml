@@ -1,0 +1,45 @@
+schema_version: 1
+
+name: retention_dn_bracket
+display_name: "Bracket retention"
+aliases: [range retention, window retention]
+definition: >-
+  Share of a first-session cohort that plays at least once on any day from
+  bracket_start to bracket_end after their first session (e.g. days 7-13 for
+  "week-2 retention").
+grain: cohort_bracket
+status: active
+owner: games-engagement-growth
+min_value: 0
+max_value: 1
+caveats:
+  - "Bracket width must be stated in every output: D7 as days 7-13 and D7 as days 5-9 are different numbers."
+  - "Brackets of whole weeks absorb day-of-week effects that make strict Dn noisy; brackets of other widths do not."
+  - "Reinstalls and new accounts on a known player enter as new cohort members unless identity is deduplicated; this inflates cohort size and depresses the rate."
+
+formula: "R_bracket = players_active_on_any_day_in[bracket_start, bracket_end] / cohort_size"
+parameters:
+  bracket_start: {type: int, min: 1}
+  bracket_end: {type: int, min: 1, rule: ">= bracket_start"}
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never 0) until day bracket_end has fully elapsed for every cohort member,
+  using the day-completion rule of retention_dn_strict.
+retention_type: bracket
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: first_session
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [retention_dn_strict, retention_dn_rolling, retention_period]
+sources:
+  - ref: games-analyst-handoff
+    note: "Retention types enumerated as strict / rolling / bracket; each a separate ID"

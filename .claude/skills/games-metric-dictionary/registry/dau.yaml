@@ -1,0 +1,39 @@
+schema_version: 1
+
+name: dau
+display_name: "Daily active users (DAU)"
+aliases: [daily actives]
+definition: >-
+  Count of distinct players with at least one session on a day.
+grain: day
+status: active
+owner: games-engagement-growth
+min_value: 0
+caveats:
+  - "Cross-platform players must be deduplicated by account; summing platform DAU counts the same person two or three times."
+  - "What counts as a session matters: idle menu time, background launches and console pre-load launches can inflate DAU. State the session rule."
+  - "Exclude bots and test accounts before counting; say which filter was used."
+
+formula: "DAU_d = |players with >= 1 session on day d|"
+day_boundary:
+  supported: [utc, player_local, reporting_tz]
+  default: utc
+maturity_rule: >-
+  null (never a partial count) until day d has fully elapsed, using the
+  day-completion rule of retention_dn_strict.
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis:
+  cohort_event: not_applicable
+  player_key: account_id
+tags:
+  family: customer
+  scope: generic
+  horizon: [operational, tactical]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]
+distinct_from: [mau_rolling, mau_calendar, stickiness_dau_mau]
+sources:
+  - ref: gameanalytics-metrics
+    note: "DAU: unique user count per day, on UTC days"

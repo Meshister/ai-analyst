@@ -1,0 +1,22 @@
+schema_version: 1
+not_applicable: not_applicable
+required_upstream: [name, display_name, definition]
+required_games:
+  [schema_version, grain, status, owner, caveats, formula, day_boundary,
+   retention_type, revenue_scope, payer_window, identity_basis, tags, sources]
+conditional:
+  maturity_rule: "required when the metric has parameters or a retention_type"
+enums:
+  status: [active, draft, deprecated]
+  day_boundary: [utc, player_local, reporting_tz]
+  retention_type: [strict, rolling, bracket, period, not_applicable]
+  payer_window: [period, lifetime, cohort_by_day_n, not_applicable]
+  revenue_stream: [iap, ads, base_game, dlc, season_pass, battle_pass, subscription, platform_subscription_payout]
+  revenue_basis: [gross, net_of_platform_fee, net_of_refunds, net_of_tax, net_all]
+  cohort_event: [first_session, first_purchase, entitlement, title_release, not_applicable]
+  player_key: [account_id, platform_account_id, player_id, subscriber_id, device_id]
+  family: [customer, community, gameplay, performance, process]
+  scope: [generic, genre, game_specific]
+  horizon: [strategic, tactical, operational]
+  business_model: [f2p_live, premium_live, premium_one_off, daily_subscription]
+  platform: [console, pc, mobile]

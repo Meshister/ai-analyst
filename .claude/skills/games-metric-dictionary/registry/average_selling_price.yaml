@@ -1,0 +1,40 @@
+schema_version: 1
+
+name: average_selling_price
+display_name: "Average selling price (ASP)"
+aliases: [ASP, realized price]
+definition: >-
+  Base-game revenue excluding sales tax, before platform fees, divided by net
+  base-game units: the average price customers actually paid after discounts.
+grain: title_platform_period
+status: draft
+owner: games-premium-sales
+min_value: 0
+caveats:
+  - "Measured before platform fees so it is comparable across storefronts; divide net_revenue_title by units for receipts per unit instead."
+  - "Moves with price mix (regional pricing, discount share, edition mix) as much as with list price; decompose before concluding prices fell."
+  - "Editions: only the base-game share of an edition's price counts, using the stated allocation rule."
+
+formula: "ASP_t = base_game_revenue_excl_tax_t / units_sold_t"
+parameters:
+  revenue_scope: {type: revenue_scope, default: {streams: [base_game], basis: net_of_tax}}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null whenever units_sold or revenue for the period is null; provisional while either is provisional."
+retention_type: not_applicable
+revenue_scope:
+  streams: [base_game]
+  basis: net_of_tax
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [net_revenue_title, discount_depth]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium Sales Analyst: pricing-discount, regional-performance. Draft: no reference doc covers premium catalog metrics."

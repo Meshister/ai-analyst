@@ -1,0 +1,41 @@
+schema_version: 1
+
+name: post_sale_dip
+display_name: "Post-sale dip"
+aliases: [sale hangover, pull-forward dip]
+definition: >-
+  Share by which units in the days after a sale fall below the title's pre-sale
+  rate. Positive means the sale pulled demand forward.
+grain: title_region_promotion
+status: draft
+owner: games-premium-sales
+max_value: 1
+caveats:
+  - "Uses the same baseline as discount_lift_net; compute both from one baseline or they will not reconcile."
+  - "Back-to-back promotions leave no clean post window; mark the dip unmeasurable rather than using a shortened window."
+  - "Negative values (units above baseline after a sale) happen after visibility boosts such as featuring; do not clip them to zero."
+
+formula: >-
+  baseline_rate as in discount_lift_net;
+  dip = (baseline_rate * post_window_days - units_post) / (baseline_rate * post_window_days)
+parameters:
+  pre_window_days: {type: int, min: 7, default: 28}
+  post_window_days: {type: int, min: 1, default: 14}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until post_window_days after the sale have elapsed and their statements posted."
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [tactical]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [discount_lift_net]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off traps: post-sale dip ignored. Draft: no reference doc covers premium catalog metrics."

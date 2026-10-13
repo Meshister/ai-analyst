@@ -1,0 +1,42 @@
+schema_version: 1
+
+name: back_catalog_share
+display_name: "Back-catalog revenue share"
+aliases: [catalog share, back catalog]
+definition: >-
+  Share of the publisher's net revenue in a period that comes from titles released
+  more than catalog_age_months before the period started.
+grain: portfolio_period
+status: draft
+owner: games-portfolio-performance
+min_value: 0
+max_value: 1
+caveats:
+  - "The age cutoff decides the number; state it. A remaster is a new release for this metric; its original is catalog."
+  - "A strong new-release slate lowers the share without catalog weakening; read it alongside catalog revenue in absolute terms."
+  - "Uses release date per platform and region; a PC port of an old console title is new on PC."
+
+formula: "share_t = net_revenue_t(titles with release_date < period_start - catalog_age_months) / net_revenue_t(all titles)"
+parameters:
+  catalog_age_months: {type: int, min: 1, default: 12}
+  revenue_scope: {type: revenue_scope, default: {streams: [base_game, dlc, season_pass], basis: net_all}}
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: "null until every title's statements for the period have posted; provisional until they are final."
+retention_type: not_applicable
+revenue_scope:
+  streams: [base_game, dlc, season_pass]
+  basis: net_all
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [share_of_catalog_earning, net_revenue_title]
+sources:
+  - ref: games-analyst-handoff
+    note: "Premium-catalog metrics to write ourselves: back-catalog share. Draft."

@@ -1,0 +1,6448 @@
+schema_version: 1
+purpose: 'Every KPI named in the reference docs, with its planned metric ID, owning agent and phase. status: built = defined
+  in this registry (planned_id is the registry file); backlog = not yet defined. Each phase starts by promoting its backlog
+  entries into registry files, deduplicating planned IDs, and dropping entries that are not metrics (qualitative feedback,
+  analyses).'
+excluded:
+- 'game-analytics-doc: A/B testing, statistical-model, ML-model and case-study sections (methods, not metrics)'
+- 'cheat-sheet: interview-prep half and development-milestone checklists (activities, not metrics)'
+- '2k-doc: interview prep, resume stories and past-employer results (not for a public repo)'
+- 'infinity-nikki: a game teardown; its currency list seeds the game-teardown skill, not metrics'
+entries:
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Active Players (DAU, WAU, MAU)
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Retention Rate
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Matchmaking Quality (Match Balance)
+  planned_id: matchmaking_quality
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Player Churn Rate
+  planned_id: churn_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Average Session Length
+  planned_id: average_session_length
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Queue Times
+  planned_id: queue_times
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Win Rate Distribution
+  planned_id: win_rate_distribution
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #9: 50% team win rate is true by construction; use side win rate by map, win rate by predicted-probability
+    bin, blowout rate'
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Revenue per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Bug Frequency and Severity
+  planned_id: bug_frequency_and_severity
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Top 10 Game Health KPIs
+  kpi: Social Interaction Metrics
+  planned_id: social_interaction_metrics
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Agent Pick Rate
+  planned_id: agent_pick_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Agent Win Rate
+  planned_id: agent_win_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #13: win rate with a confidence interval, mirrors excluded, MMR-adjusted'
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Round Win Rate (Attacker/Defender)
+  planned_id: round_win_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Economy Efficiency
+  planned_id: economy_efficiency
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Kill/Death/Assist Ratio (KDA)
+  planned_id: kill_death_assist_ratio
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Headshot Percentage
+  planned_id: headshot_percentage
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #12: headshot rate = head hits / hits; report accuracy separately'
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: First Blood Rate
+  planned_id: first_blood_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Ability Usage Efficiency
+  planned_id: ability_usage_efficiency
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Clutch Success Rate
+  planned_id: clutch_success_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Core Game Play KPIs
+  kpi: Spike Plant Success Rate
+  planned_id: spike_plant_success_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Agent Pick Rate
+  planned_id: agent_pick_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Agent Win Rate
+  planned_id: agent_win_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #13: win rate with a confidence interval, mirrors excluded, MMR-adjusted'
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: First Blood Contribution
+  planned_id: first_blood_contribution
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Ability Kill Contribution
+  planned_id: ability_kill_contribution
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Ability Efficiency
+  planned_id: ability_efficiency
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Damage Per Round (DPR)
+  planned_id: damage_per_round
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Healing Per Round
+  planned_id: healing_per_round
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Ultimate Impact Rate
+  planned_id: ultimate_impact_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Role-Specific KPIs
+  planned_id: role_specific_kpis
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Agent KPIs
+  kpi: Agent Synergy Metrics
+  planned_id: agent_synergy_metrics
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Win Rate by Mode
+  planned_id: win_rate_by_mode
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Game Length
+  planned_id: game_length
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Time to Kill (TTK)
+  planned_id: time_to_kill
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Round Completion Rate
+  planned_id: round_completion_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Objective Success Rate
+  planned_id: objective_success_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Agent Role Distribution
+  planned_id: agent_role_distribution
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Player Count by Mode
+  planned_id: player_count_by_mode
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Kill-to-Death Ratio (KDR)
+  planned_id: kill_to_death_ratio
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+  correction: 'plan #10: 1.0 average KDR is near-true by construction; use KDR spread by rank or role'
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Ability Usage Frequency
+  planned_id: ability_usage_frequency
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Game Mode KPIs
+  kpi: Player Retention by Mode
+  planned_id: player_retention_by_mode
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Match Balance (Skill Gap)
+  planned_id: match_balance
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Queue Times
+  planned_id: queue_times
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Role Distribution
+  planned_id: role_distribution
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Remake Rate
+  planned_id: remake_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Win Probability Accuracy
+  planned_id: win_probability_accuracy
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Smurf Detection Rate
+  planned_id: smurf_detection_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #14: precision and recall against a labeled sample; IP/device overlap is one weak signal'
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Match Satisfaction Score
+  planned_id: match_satisfaction_score
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Rank Progression Rate
+  planned_id: rank_progression_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Avoided Player Rate
+  planned_id: avoided_player_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: Party Matchmaking Efficiency
+  planned_id: party_matchmaking_efficiency
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: ELO Score Consistency
+  planned_id: elo_score_consistency
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Matchmaking KPIs
+  kpi: MMR Accuracy
+  planned_id: mmr_accuracy
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #11: replace correlation with calibration (Brier score, log loss, calibration curve)'
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Daily Active Users (DAU/WAU/MAU)
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Session Frequency
+  planned_id: session_frequency
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Average Session Length
+  planned_id: average_session_length
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Mode Engagement Rate
+  planned_id: mode_engagement_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Map Stickiness Rate
+  planned_id: map_stickiness_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Daily Mission Stickiness
+  planned_id: daily_mission_stickiness
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Event Participation Stickiness
+  planned_id: event_participation_stickiness
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Player Communication Engagement
+  planned_id: player_communication_engagement
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Custom Game Creation Rate
+  planned_id: custom_game_creation_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Engagement Metrics
+  kpi: Ranked Progression Stickiness
+  planned_id: ranked_progression_stickiness
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Skin Bundle Purchase Rate
+  planned_id: skin_bundle_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: item rates are shares of payers and cannot exceed the payer rate'
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Individual Cosmetic Purchase Rate
+  planned_id: individual_cosmetic_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: item rates are shares of payers and cannot exceed the payer rate'
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: MTX Engagement Rate
+  planned_id: mtx_engagement_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Night Market Conversion Rate
+  planned_id: night_market_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: item rates are shares of payers and cannot exceed the payer rate'
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: MTX Revenue Per Bundle
+  planned_id: mtx_revenue_per_bundle
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Radianite Point Spend Rate
+  planned_id: radianite_point_spend_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: MTX Churn Rate
+  planned_id: mtx_churn_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: MTX Frequency Rate
+  planned_id: mtx_frequency_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Cosmetic Conversion Rate
+  planned_id: cosmetic_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: MTX (Microtransactions) Metrics
+  kpi: Cosmetic Gift Feature Usage
+  planned_id: cosmetic_gift_feature_usage
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: ARPU (Average Revenue Per User)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: ARPPU (Average Revenue Per Paying User)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Revenue per Match
+  planned_id: revenue_per_match
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Lifetime Value (LTV)
+  planned_id: ltv_h
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Conversion Rate
+  planned_id: payer_conversion_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Regional Revenue Distribution
+  planned_id: regional_revenue_distribution
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: High-Spender Concentration
+  planned_id: high_spender_concentration
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Seasonal Revenue Spikes
+  planned_id: seasonal_revenue_spikes
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: MTX Discount Usage Rate
+  planned_id: mtx_discount_usage_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Financial Metrics
+  kpi: Cross-Promotion Impact
+  planned_id: cross_promotion_impact
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass Purchase Rate
+  planned_id: battle_pass_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: premium purchase rate as a share of actives, one prior per genre, unsourced'
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass Engagement Rate
+  planned_id: battle_pass_engagement_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass Completion Rate
+  planned_id: battle_pass_completion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: use 20-30% of buyers, labeled unsourced'
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Free vs. Premium Engagement
+  planned_id: free_vs_premium_engagement
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: premium purchase rate as a share of actives, one prior per genre, unsourced'
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Weekly Mission Completion Rate
+  planned_id: weekly_mission_completion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: XP Burnout Rate
+  planned_id: xp_burnout_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass ARPPU
+  planned_id: battle_pass_arppu
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass Tier Skipping Rate
+  planned_id: battle_pass_tier_skipping_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Battle Pass Retention Rate
+  planned_id: battle_pass_retention_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Metrics
+  kpi: Cosmetic Unlock Distribution
+  planned_id: cosmetic_unlock_distribution
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Account Level Growth Rate
+  planned_id: account_level_growth_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Daily/Weekly XP Earned
+  planned_id: daily_weekly_xp_earned
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: XP Source Distribution
+  planned_id: xp_source_distribution
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Level Retention Checkpoints
+  planned_id: level_retention_checkpoints
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Competitive Unlock Rate
+  planned_id: competitive_unlock_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: XP Efficiency
+  planned_id: xp_efficiency
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Account Progression Burnout Rate
+  planned_id: account_progression_burnout_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Reward Unlock Rate
+  planned_id: reward_unlock_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: XP Boost Utilization Rate
+  planned_id: xp_boost_utilization_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Account Progression Metrics
+  kpi: Prestige Engagement Rate
+  planned_id: prestige_engagement_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Agent Contract Completion Rate
+  planned_id: agent_contract_completion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Average Time to Unlock Agent
+  planned_id: average_time_to_unlock_agent
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: XP Earned per Agent Contract
+  planned_id: xp_earned_per_agent_contract
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Agent Preference Distribution
+  planned_id: agent_preference_distribution
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Contract Abandonment Rate
+  planned_id: contract_abandonment_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Average Agent Playtime
+  planned_id: average_agent_playtime
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Reward Unlock Rate per Agent
+  planned_id: reward_unlock_rate_per_agent
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Agent Unlock Conversion Rate
+  planned_id: agent_unlock_conversion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: First Agent Unlock Time
+  planned_id: first_agent_unlock_time
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Agent Progression Metrics
+  kpi: Role-Specific Progression
+  planned_id: role_specific_progression
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Battle Pass Tier Progression Rate
+  planned_id: battle_pass_tier_progression_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Daily Mission Contribution Rate
+  planned_id: daily_mission_contribution_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Weekly Mission Completion Rate
+  planned_id: weekly_mission_completion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Tier Completion Distribution
+  planned_id: tier_completion_distribution
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: XP Burnout Rate
+  planned_id: xp_burnout_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Free vs. Premium Engagement
+  planned_id: free_vs_premium_engagement
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+  correction: 'plan contradictory ranges: premium purchase rate as a share of actives, one prior per genre, unsourced'
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: XP Earned per Match
+  planned_id: xp_earned_per_match
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Late-Season Rush Rate
+  planned_id: late_season_rush_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Exclusive Reward Engagement
+  planned_id: exclusive_reward_engagement
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Battle Pass Progression Metrics
+  kpi: Battle Pass Completion Rate
+  planned_id: battle_pass_completion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+  correction: 'plan contradictory ranges: use 20-30% of buyers, labeled unsourced'
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Earned per Match
+  planned_id: xp_earned_per_match
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Earned per Mode
+  planned_id: xp_earned_per_mode
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Earned per Hour
+  planned_id: xp_earned_per_hour
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Source Distribution
+  planned_id: xp_source_distribution
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: Daily XP Earned
+  planned_id: daily_xp_earned
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: Mission XP Contribution Rate
+  planned_id: mission_xp_contribution_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Pacing Consistency
+  planned_id: xp_pacing_consistency
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Boost Utilization Rate
+  planned_id: xp_boost_utilization_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Burnout Rate
+  planned_id: xp_burnout_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: XP KPIs
+  kpi: XP Completion Distribution
+  planned_id: xp_completion_distribution
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Premade Party Rate
+  planned_id: premade_party_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Voice Chat Usage Rate
+  planned_id: voice_chat_usage_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Text Chat Usage Rate
+  planned_id: text_chat_usage_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Friend Invite Rate
+  planned_id: friend_invite_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Player Reporting Rate
+  planned_id: player_reporting_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Toxicity Incident Rate
+  planned_id: toxicity_incident_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Actioned Report Rate
+  planned_id: actioned_report_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Positive Player Interaction Rate
+  planned_id: positive_player_interaction_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Mute Feature Usage Rate
+  planned_id: mute_feature_usage_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social KPIs
+  kpi: Re-Queue Rate with Teammates
+  planned_id: re_queue_rate_with_teammates
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Concurrent Users (CCU)
+  planned_id: concurrent_users
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Matchmaking Success Rate
+  planned_id: matchmaking_success_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Server Tick Rate
+  planned_id: server_tick_rate
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Latency/Ping Distribution
+  planned_id: latency_ping_distribution
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Crash Rate per Match
+  planned_id: crash_rate_per_match
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Error Report Frequency
+  planned_id: error_report_frequency
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: FPS Stability
+  planned_id: fps_stability
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Server Uptime
+  planned_id: server_uptime
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Patch Deployment Success Rate
+  planned_id: patch_deployment_success_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Technical KPIs
+  kpi: Match Latency Variance
+  planned_id: match_latency_variance
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Concurrent Users (CCU)
+  planned_id: concurrent_users
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Server Response Time
+  planned_id: server_response_time
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Match Queue Load
+  planned_id: match_queue_load
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Match Drop Rate
+  planned_id: match_drop_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Crash Reporting
+  planned_id: crash_reporting
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Real-Time Toxic Reports
+  planned_id: real_time_toxic_reports
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Match Success Rate
+  planned_id: match_success_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Regional Latency Monitoring
+  planned_id: regional_latency_monitoring
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Mode-Specific CCU
+  planned_id: mode_specific_ccu
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Real-Time Metrics
+  kpi: Real-Time XP Gain
+  planned_id: real_time_xp_gain
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Total Installs
+  planned_id: total_installs
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Daily New Installs
+  planned_id: daily_new_installs
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Installation Completion Rate
+  planned_id: installation_completion_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Device Compatibility Failures
+  planned_id: device_compatibility_failures
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Install-to-First-Session Rate
+  planned_id: install_to_first_session_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Time to First Match
+  planned_id: time_to_first_match
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Uninstall Rate
+  planned_id: uninstall_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Install Source Distribution
+  planned_id: install_source_distribution
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Install Region Distribution
+  planned_id: install_region_distribution
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Install KPIs
+  kpi: Reinstallation Rate
+  planned_id: reinstallation_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player Sentiment Score
+  planned_id: player_sentiment_score
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Net Promoter Score (NPS)
+  planned_id: net_promoter_score
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Forum Engagement Rate
+  planned_id: forum_engagement_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Social Media Follower Growth
+  planned_id: social_media_follower_growth
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player Feedback Submission Rate
+  planned_id: player_feedback_submission_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Patch Sentiment Analysis
+  planned_id: patch_sentiment_analysis
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player-Driven Content Engagement
+  planned_id: player_driven_content_engagement
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Community Event Participation
+  planned_id: community_event_participation
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Streamer Impact Score
+  planned_id: streamer_impact_score
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Public Review Scores
+  planned_id: public_review_scores
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Seasonal Player Retention
+  planned_id: seasonal_player_retention
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Battle Pass Engagement Change
+  planned_id: battle_pass_engagement_change
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Seasonal New Player Growth
+  planned_id: seasonal_new_player_growth
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Seasonal Revenue Growth
+  planned_id: seasonal_revenue_growth
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Agent Pick Rate Variance
+  planned_id: agent_pick_rate_variance
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Mode Engagement Change
+  planned_id: mode_engagement_change
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Competitive Progression Rate
+  planned_id: competitive_progression_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Seasonal Event Participation
+  planned_id: seasonal_event_participation
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: XP Earned per Season
+  planned_id: xp_earned_per_season
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Season-Over-Season KPIs
+  kpi: Churn Rate Change
+  planned_id: churn_rate_change
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: KDA Ratio
+  planned_id: kda_ratio
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Headshot Accuracy
+  planned_id: headshot_accuracy
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+  correction: 'plan #12: headshot rate = head hits / hits; report accuracy separately'
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Entry Frag Success Rate
+  planned_id: entry_frag_success_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Clutch Success Rate
+  planned_id: clutch_success_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Kill Conversion Rate
+  planned_id: kill_conversion_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Round Impact Score
+  planned_id: round_impact_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Ability Usage Efficiency
+  planned_id: ability_usage_efficiency
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Spike Plant/Defuse Success Rate
+  planned_id: spike_plant_defuse_success_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Average Damage per Round (ADR)
+  planned_id: average_damage_per_round
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Player Skill KPIs
+  kpi: Skill Rating Consistency
+  planned_id: skill_rating_consistency
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: Tutorial Completion Rate
+  planned_id: tutorial_completion_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: First Match Dropout Rate
+  planned_id: first_match_dropout_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: New Player Retention (Day 1)
+  planned_id: retention_dn_strict
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: built
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: Competitive Unlock Rate
+  planned_id: competitive_unlock_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: First 10 Match Win Rate
+  planned_id: first_10_match_win_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: New Player Mission Completion
+  planned_id: new_player_mission_completion
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: Average Time to First Agent Unlock
+  planned_id: average_time_to_first_agent_unlock
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: Early XP Efficiency
+  planned_id: early_xp_efficiency
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: Onboarding Churn Rate
+  planned_id: onboarding_churn_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Onboarding KPIs
+  kpi: First Match Satisfaction Score
+  planned_id: first_match_satisfaction_score
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Radianite Point Burn Rate
+  planned_id: radianite_point_burn_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Average Radianite Point Balance
+  planned_id: average_radianite_point_balance
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Spike Round Economy Efficiency
+  planned_id: spike_round_economy_efficiency
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Eco Round Win Rate
+  planned_id: eco_round_win_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Full-Buy Round Win Rate
+  planned_id: full_buy_round_win_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Resource Allocation Balance
+  planned_id: resource_allocation_balance
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Mid-Round Economy Impact
+  planned_id: mid_round_economy_impact
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Weapon Drop Efficiency
+  planned_id: weapon_drop_efficiency
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Overall Credit Burn Rate
+  planned_id: overall_credit_burn_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: Economy KPIs
+  kpi: Buy Menu Interaction Rate
+  planned_id: buy_menu_interaction_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Playtest Engagement Rate
+  planned_id: playtest_engagement_rate
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Usability Issue Detection Rate
+  planned_id: usability_issue_detection_rate
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Feature Adoption Rate
+  planned_id: feature_adoption_rate
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Feedback Sentiment Score
+  planned_id: feedback_sentiment_score
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Task Completion Rate
+  planned_id: task_completion_rate
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Retention Simulation
+  planned_id: retention_simulation
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Time to Mastery
+  planned_id: time_to_mastery
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Cognitive Load Assessment
+  planned_id: cognitive_load_assessment
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Error Rate
+  planned_id: error_rate
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: User Research KPIs
+  kpi: Player Recommendation Score
+  planned_id: player_recommendation_score
+  owner: games-studio-insights
+  category: publisher
+  phase: 2
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Forum Activity Rate
+  planned_id: forum_activity_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Discord Server Growth
+  planned_id: discord_server_growth
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Content Contribution Rate
+  planned_id: content_contribution_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Event Participation Rate
+  planned_id: event_participation_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Moderation Action Rate
+  planned_id: moderation_action_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player Sentiment Score
+  planned_id: player_sentiment_score
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player Support Ticket Volume
+  planned_id: player_support_ticket_volume
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Community Poll Engagement
+  planned_id: community_poll_engagement
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Player Referral Rate
+  planned_id: player_referral_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Community KPIs
+  kpi: Community Retention Rate
+  planned_id: community_retention_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Follower Growth Rate
+  planned_id: follower_growth_rate
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Engagement Rate
+  planned_id: engagement_rate
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Hashtag Usage
+  planned_id: hashtag_usage
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Content Share Rate
+  planned_id: content_share_rate
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Video View Count
+  planned_id: video_view_count
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Sentiment of Comments
+  planned_id: sentiment_of_comments
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Live Stream Metrics
+  planned_id: live_stream_metrics
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Influencer Engagement
+  planned_id: influencer_engagement
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Click-Through Rate (CTR)
+  planned_id: click_through_rate
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: Social Media KPIs
+  kpi: Campaign-Specific Metrics
+  planned_id: campaign_specific_metrics
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Win Rate Disparity
+  planned_id: win_rate_disparity
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Skill Rating Growth Rate (MMR Climb)
+  planned_id: skill_rating_growth_rate
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Matchmaking Disparity Rate
+  planned_id: matchmaking_disparity_rate
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Kill-to-Death Ratio (KDR) Outliers
+  planned_id: kill_to_death_ratio_outliers
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+  correction: 'plan #10: 1.0 average KDR is near-true by construction; use KDR spread by rank or role'
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Agent Mastery Discrepancy
+  planned_id: agent_mastery_discrepancy
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Rank Placement Efficiency
+  planned_id: rank_placement_efficiency
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: IP Address or Device Overlap
+  planned_id: ip_address_or_device_overlap
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+  correction: 'plan #14: precision and recall against a labeled sample; IP/device overlap is one weak signal'
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Disparity in Communication Behavior
+  planned_id: disparity_in_communication_behavior
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: Weapon Usage Patterns
+  planned_id: weapon_usage_patterns
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs for Tracking Smurfing
+  kpi: High Report Rate for “Smurfing”
+  planned_id: high_report_rate_for_smurfing
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Early Match Dominance
+  planned_id: early_match_dominance
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Frequent Account Creation
+  planned_id: frequent_account_creation
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Retention Drop in Matched Players
+  planned_id: retention_drop_in_matched_players
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Unusual Playtime Patterns
+  planned_id: unusual_playtime_patterns
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Rank Disparity in Groups
+  planned_id: rank_disparity_in_groups
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: High Performance Consistency
+  planned_id: high_performance_consistency
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Lower Queue Times for High-Skill Smurfs
+  planned_id: lower_queue_times_for_high_skill_smurfs
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Agent First-Time Usage Efficiency
+  planned_id: agent_first_time_usage_efficiency
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Account Age
+  planned_id: account_age
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-doc
+  section: KPIs That Act as Adjacent Signals
+  kpi: Discrepancy in Matchmaking Predictions
+  planned_id: discrepancy_in_matchmaking_predictions
+  owner: games-smurfing
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Server Uptime
+  planned_id: server_uptime
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Load Time
+  planned_id: load_time
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Error Rate
+  planned_id: error_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Frame Rate
+  planned_id: frame_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Latency/Ping
+  planned_id: latency_ping
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Peak Concurrent Users (PCU)
+  planned_id: peak_concurrent_users
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Player Retention Rates
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Session Length
+  planned_id: session_length
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Quest Completion Rates
+  planned_id: quest_completion_rates
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Heatmaps of Player Activity
+  planned_id: heatmaps_of_player_activity
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Player Progression Speed
+  planned_id: player_progression_speed
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Game Design KPIs
+  kpi: Player Skill Distribution
+  planned_id: player_skill_distribution
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: DAU/MAU (Daily/Monthly Active Users)
+  planned_id: dau_mau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: Community Engagement
+  planned_id: community_engagement
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: Social Share Rate
+  planned_id: social_share_rate
+  owner: games-virality-referral
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: Battle Pass Conversion Rate
+  planned_id: battle_pass_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Commercial Performance KPIs
+  kpi: Content Release Impact
+  planned_id: content_release_impact
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: ARPU (Average Revenue Per User)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: ARPPU (Average Revenue Per Paying User)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: LTV (Lifetime Value)
+  planned_id: ltv_h
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: CPI (Cost Per Install)
+  planned_id: cpi
+  owner: games-user-acquisition
+  category: commercial
+  phase: 6
+  status: backlog
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: Revenue Growth Rate
+  planned_id: revenue_growth_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Financial Performance KPIs
+  kpi: Battle Pass Sales Revenue
+  planned_id: battle_pass_sales_revenue
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Average Queue Time
+  planned_id: average_queue_time
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Queue Dropout Rate
+  planned_id: queue_dropout_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Team Invites Sent and Accepted
+  planned_id: team_invites_sent_and_accepted
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Friend Creation Rate
+  planned_id: friend_creation_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Store Purchase Conversion Rate
+  planned_id: store_purchase_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Ad Click-Through Rate (CTR)
+  planned_id: ad_click_through_rate
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Engagement Rate on Promotional Content
+  planned_id: engagement_rate_on_promotional_content
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Player Lifetime Duration
+  planned_id: player_duration_n
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: UI/UX Interaction Metrics
+  planned_id: ui_ux_interaction_metrics
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Guild or Clan Membership
+  planned_id: guild_or_clan_membership
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Virtual Goods Sale Metrics
+  planned_id: virtual_goods_sale_metrics
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Economic Balance
+  planned_id: economic_balance
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Ticket Volume
+  planned_id: ticket_volume
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Resolution Time
+  planned_id: resolution_time
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Bug Report Rate
+  planned_id: bug_report_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Additional KPIs
+  kpi: Patch or Update Stability Metrics
+  planned_id: patch_or_update_stability_metrics
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Player Retention Rates
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Daily/Monthly Active Users (DAU/MAU)
+  planned_id: daily_monthly_active_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Average Revenue Per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Session Length
+  planned_id: session_length
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Server Uptime
+  planned_id: server_uptime
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Bug Report Rate
+  planned_id: bug_report_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Player Progression Speed
+  planned_id: player_progression_speed
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Community Engagement
+  planned_id: community_engagement
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: 'Top 10 KPI’s gauging game health:'
+  kpi: Churn Rate
+  planned_id: churn_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Hero Performance KPIs
+  kpi: Hero Usage Rate
+  planned_id: hero_usage_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Performance KPIs
+  kpi: Win Rate by Hero
+  planned_id: win_rate_by_hero
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Performance KPIs
+  kpi: Kill/Assist/Death Ratio (KAD)
+  planned_id: kill_assist_death_ratio
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Performance KPIs
+  kpi: Hero Survival Rate
+  planned_id: hero_survival_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Engagement KPIs
+  kpi: Time Played Per Hero
+  planned_id: time_played_per_hero
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Engagement KPIs
+  kpi: Player Preference Trends
+  planned_id: player_preference_trends
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Engagement KPIs
+  kpi: Hero Switch Rate
+  planned_id: hero_switch_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Balance KPIs
+  kpi: Hero Effectiveness in Different Game Modes
+  planned_id: hero_effectiveness_in_different_game_modes
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Balance KPIs
+  kpi: Hero Synergy/Counter Metrics
+  planned_id: hero_synergy_counter_metrics
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Balance KPIs
+  kpi: Ability Usage and Effectiveness
+  planned_id: ability_usage_and_effectiveness
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Progression KPIs
+  kpi: Hero Leveling Speed
+  planned_id: hero_leveling_speed
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Progression KPIs
+  kpi: Skill/Ability Unlock Rate
+  planned_id: skill_ability_unlock_rate
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Progression KPIs
+  kpi: Hero Mastery
+  planned_id: hero_mastery
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Satisfaction KPIs
+  kpi: Player Feedback and Ratings
+  planned_id: player_feedback_and_ratings
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Satisfaction KPIs
+  kpi: Hero-Specific Issues Reported
+  planned_id: hero_specific_issues_reported
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Hero Satisfaction KPIs
+  kpi: Community Discussions Sentiment
+  planned_id: community_discussions_sentiment
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Monetization KPIs
+  kpi: Revenue per Hero
+  planned_id: revenue_per_hero
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Monetization KPIs
+  kpi: Purchase Rate of Hero-Specific Items
+  planned_id: purchase_rate_of_hero_specific_items
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Hero Monetization KPIs
+  kpi: Conversion Rate for Hero-Based Promotions
+  planned_id: conversion_rate_for_hero_based_promotions
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Meta-Game Impact KPIs
+  kpi: Hero Impact on Match Outcomes
+  planned_id: hero_impact_on_match_outcomes
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Meta-Game Impact KPIs
+  kpi: Meta Shifts Involving Heroes
+  planned_id: meta_shifts_involving_heroes
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Meta-Game Impact KPIs
+  kpi: Player Adaptability to Hero Changes
+  planned_id: player_adaptability_to_hero_changes
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Match Participation Rate
+  planned_id: match_participation_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Average Match Duration
+  planned_id: average_match_duration
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Session Length in PvP Mode
+  planned_id: session_length_in_pvp_mode
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Win/Loss Ratios
+  planned_id: win_loss_ratios
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Player Ranking Fluctuations
+  planned_id: player_ranking_fluctuations
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Kill/Death Ratios in PvP
+  planned_id: kill_death_ratios_in_pvp
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Matchmaking Time
+  planned_id: matchmaking_time
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Match Balance Score
+  planned_id: match_balance_score
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Rematch Rate
+  planned_id: rematch_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: PvP Mode Satisfaction Ratings
+  planned_id: pvp_mode_satisfaction_ratings
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Complaints or Issues Reported
+  planned_id: complaints_or_issues_reported
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvP (Player vs. Player)'
+  kpi: Community Sentiment Analysis
+  planned_id: community_sentiment_analysis
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Level/Scenario Completion Rates
+  planned_id: level_scenario_completion_rates
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Replay Rate
+  planned_id: replay_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Engagement with PvE Objectives
+  planned_id: engagement_with_pve_objectives
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Group Formation Rate
+  planned_id: group_formation_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Co-op Mission Success Rate
+  planned_id: co_op_mission_success_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Social Interaction in PvE
+  planned_id: social_interaction_in_pve
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Player Progression in PvE
+  planned_id: player_progression_in_pve
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Adjustments Post-Update
+  planned_id: adjustments_post_update
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: PvE Challenge Rating
+  planned_id: pve_challenge_rating
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Rewards Acquisition Rate
+  planned_id: rewards_acquisition_rate
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Character Growth in PvE
+  planned_id: character_growth_in_pve
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: Resource Accumulation Rates
+  planned_id: resource_accumulation_rates
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: NPC (Non-Playable Character) Behavior Analysis
+  planned_id: npc_behavior_analysis
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: AI Difficulty Scaling
+  planned_id: ai_difficulty_scaling
+  owner: games-game-modes
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: 'Game Modes KPIs: PvE (Player vs. Environment)'
+  kpi: AI Encounter Diversity
+  planned_id: ai_encounter_diversity
+  owner: games-hero-balance
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Map Selection Rate
+  planned_id: map_selection_rate
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Win/Loss Ratio per Map
+  planned_id: win_loss_ratio_per_map
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Average Match Duration per Map
+  planned_id: average_match_duration_per_map
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Player Movement and Heatmaps
+  planned_id: player_movement_and_heatmaps
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Objective Completion Rate
+  planned_id: objective_completion_rate
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Kill Zones
+  planned_id: kill_zones
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Player Feedback and Ratings
+  planned_id: player_feedback_and_ratings
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Spawn Point Effectiveness
+  planned_id: spawn_point_effectiveness
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Resource Distribution Analysis
+  planned_id: resource_distribution_analysis
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Environmental Hazard Interactions
+  planned_id: environmental_hazard_interactions
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Map Rotation Stickiness
+  planned_id: map_rotation_stickiness
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Map-specific Strategy Diversity
+  planned_id: map_specific_strategy_diversity
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Map Balance KPIs
+  kpi: Post-Update Map Performance
+  planned_id: post_update_map_performance
+  owner: games-map-balance
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: XP (Experience Points) KPIs
+  kpi: XP Acquisition Rate
+  planned_id: xp_acquisition_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: XP (Experience Points) KPIs
+  kpi: Level-Up Time
+  planned_id: level_up_time
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: XP (Experience Points) KPIs
+  kpi: XP Source Effectiveness
+  planned_id: xp_source_effectiveness
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Rewards KPIs
+  kpi: Rewards Claim Rate
+  planned_id: rewards_claim_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Rewards KPIs
+  kpi: Reward Satisfaction Rating
+  planned_id: reward_satisfaction_rating
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Rewards KPIs
+  kpi: Influence of Rewards on Player Behavior
+  planned_id: influence_of_rewards_on_player_behavior
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Progression System KPIs
+  kpi: Milestone Completion Rate
+  planned_id: milestone_completion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Progression System KPIs
+  kpi: Progression Path Diversity
+  planned_id: progression_path_diversity
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Progression System KPIs
+  kpi: Impact of Progression on Player Retention
+  planned_id: impact_of_progression_on_player_retention
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Progression System KPIs
+  kpi: Skill Progression Balance
+  planned_id: skill_progression_balance
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Progression System KPIs
+  kpi: Progression-Linked Content Accessibility
+  planned_id: progression_linked_content_accessibility
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Completion Rate of FTUE
+  planned_id: completion_rate_of_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Average Time Spent in FTUE
+  planned_id: average_time_spent_in_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Drop-Off Points in FTUE
+  planned_id: drop_off_points_in_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Player Feedback on FTUE
+  planned_id: player_feedback_on_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: FTUE Effectiveness in Skill Teaching
+  planned_id: ftue_effectiveness_in_skill_teaching
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Conversion Rate Post-FTUE
+  planned_id: conversion_rate_post_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Player Engagement Post-FTUE
+  planned_id: player_engagement_post_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Clarity and Usability Metrics
+  planned_id: clarity_and_usability_metrics
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Social Feature Introduction
+  planned_id: social_feature_introduction
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: FTUE KPIs
+  kpi: Personalization Options in FTUE
+  planned_id: personalization_options_in_ftue
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Usage Rate of Squad Builder
+  planned_id: usage_rate_of_squad_builder
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Average Time Spent in Squad Builder
+  planned_id: average_time_spent_in_squad_builder
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Squad Composition Variability
+  planned_id: squad_composition_variability
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Success Rate of Built Squads
+  planned_id: success_rate_of_built_squads
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Player Satisfaction with Squad Building
+  planned_id: player_satisfaction_with_squad_building
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Repeat Usage Rate
+  planned_id: repeat_usage_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Squad Customization Options Usage
+  planned_id: squad_customization_options_usage
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Correlation Between Squad Building and In-Game Performance
+  planned_id: correlation_between_squad_building_and_in_game_performance
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Integration with Other Game Features
+  planned_id: integration_with_other_game_features
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Impact on Player Retention
+  planned_id: impact_on_player_retention
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Ease of Learning
+  planned_id: ease_of_learning
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Squad Builder KPIs
+  kpi: Friend/Community Invites via Squad Builder
+  planned_id: friend_community_invites_via_squad_builder
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Matchmaking Time
+  planned_id: matchmaking_time
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Match Balance Rate
+  planned_id: match_balance_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Player Satisfaction Post-Match
+  planned_id: player_satisfaction_post_match
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Rematch Rate
+  planned_id: rematch_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Skill Range in Matches
+  planned_id: skill_range_in_matches
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Queue Dropout Rate
+  planned_id: queue_dropout_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Match Completion Rate
+  planned_id: match_completion_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Player Rank Progression Post-Match
+  planned_id: player_rank_progression_post_match
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Match Diversity
+  planned_id: match_diversity
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Matchmaking Algorithm Adjustments
+  planned_id: matchmaking_algorithm_adjustments
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Player Retention Rate Post-Matchmaking
+  planned_id: player_retention_rate_post_matchmaking
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Matchmaker KPIs
+  kpi: Cross-Skill Interactions
+  planned_id: cross_skill_interactions
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Friend List Growth
+  planned_id: friend_list_growth
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Social Interaction Frequency
+  planned_id: social_interaction_frequency
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Guild/Clan Membership and Activity
+  planned_id: guild_clan_membership_and_activity
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Social Feature Utilization Rate
+  planned_id: social_feature_utilization_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Community Event Participation
+  planned_id: community_event_participation
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Player Referral Rates
+  planned_id: player_referral_rates
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Social Sharing Metrics
+  planned_id: social_sharing_metrics
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: In-Game Communication Quality
+  planned_id: in_game_communication_quality
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Collaborative Gameplay Metrics
+  planned_id: collaborative_gameplay_metrics
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Social Feature Feedback
+  planned_id: social_feature_feedback
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Community Health Indicators
+  planned_id: community_health_indicators
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Social Features KPIs
+  kpi: Cross-Platform Social Interactions
+  planned_id: cross_platform_social_interactions
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Average Revenue Per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Purchase Frequency
+  planned_id: purchase_frequency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Item Popularity and Sales Distribution
+  planned_id: item_popularity_and_sales_distribution
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Cart Abandonment Rate
+  planned_id: cart_abandonment_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Revenue from Special Promotions
+  planned_id: revenue_from_special_promotions
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Customer Lifetime Value (LTV) Related to Store Purchases
+  planned_id: customer_lifetime_value_related_to_store_purchases
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Time to First Purchase
+  planned_id: time_to_first_purchase
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: User Feedback on Store Experience
+  planned_id: user_feedback_on_store_experience
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Upsell and Cross-Sell Success Rates
+  planned_id: upsell_and_cross_sell_success_rates
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Payment Method Diversity and Success Rate
+  planned_id: payment_method_diversity_and_success_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: In-Game Store KPIs
+  kpi: Seasonal Variations in Sales
+  planned_id: seasonal_variations_in_sales
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Battle Pass Purchase Rate
+  planned_id: battle_pass_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: premium purchase rate as a share of actives, one prior per genre, unsourced'
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Battle Pass Completion Rate
+  planned_id: battle_pass_completion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'plan contradictory ranges: use 20-30% of buyers, labeled unsourced'
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Average Progression Speed
+  planned_id: average_progression_speed
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Tier Skips and Purchases
+  planned_id: tier_skips_and_purchases
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Renewal Rate
+  planned_id: renewal_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Player Satisfaction with Rewards
+  planned_id: player_satisfaction_with_rewards
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Impact on Player Retention
+  planned_id: impact_on_player_retention
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Revenue Generated per Battle Pass
+  planned_id: revenue_generated_per_battle_pass
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Engagement with Battle Pass Challenges
+  planned_id: engagement_with_battle_pass_challenges
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Exclusive Content Usage
+  planned_id: exclusive_content_usage
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Social Sharing and Promotion
+  planned_id: social_sharing_and_promotion
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Battle Pass KPIs
+  kpi: Feedback on Battle Pass Structure
+  planned_id: feedback_on_battle_pass_structure
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Server Uptime
+  planned_id: server_uptime
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Load Time
+  planned_id: load_time
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Error Rate
+  planned_id: error_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Frame Rate Performance
+  planned_id: frame_rate_performance
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Network Latency
+  planned_id: network_latency
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Resource Utilization
+  planned_id: resource_utilization
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Patch and Update Deployment Success
+  planned_id: patch_and_update_deployment_success
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Player Connectivity Rate
+  planned_id: player_connectivity_rate
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Device Compatibility Issues
+  planned_id: device_compatibility_issues
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Response Time to Technical Issues
+  planned_id: response_time_to_technical_issues
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Scalability Under Load
+  planned_id: scalability_under_load
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Technical Performance KPIs
+  kpi: Data Security Incidents
+  planned_id: data_security_incidents
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Customer Acquisition Cost (CAC)
+  planned_id: customer_acquisition_cost
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Cost Per Install (CPI)
+  planned_id: cost_per_install
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Player Lifetime Value (LTV)
+  planned_id: player_lifetime_value
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Return on Marketing Investment (ROMI)
+  planned_id: return_on_marketing_investment
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: ormula
+  planned_id: ormula
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Social Media Reach and Growth
+  planned_id: social_media_reach_and_growth
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Email Open and Click Rates
+  planned_id: email_open_and_click_rates
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: 1, 3, 7, 10, 30-Day Stickiness
+  planned_id: 1_3_7_10_30_day_stickiness
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: built
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Click-Through Rate (CTR)
+  planned_id: click_through_rate
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Engagement Rate
+  planned_id: engagement_rate
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Website Traffic and User Behavior
+  planned_id: website_traffic_and_user_behavior
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Marketing KPIs
+  kpi: Event and Stream Viewership Metrics
+  planned_id: event_and_stream_viewership_metrics
+  owner: games-portfolio-marketing
+  category: publisher
+  phase: 2
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Community Engagement Rate
+  planned_id: community_engagement_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Response Time to Community Inquiries
+  planned_id: response_time_to_community_inquiries
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Social Media Sentiment Analysis
+  planned_id: social_media_sentiment_analysis
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Press Release Reach and Impact
+  planned_id: press_release_reach_and_impact
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Public Relations Incident Response Effectiveness
+  planned_id: public_relations_incident_response_effectiveness
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Player Feedback Implementation Rate
+  planned_id: player_feedback_implementation_rate
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Community Growth Metrics
+  planned_id: community_growth_metrics
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Content Sharing and Virality
+  planned_id: content_sharing_and_virality
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Newsletter Subscription and Engagement
+  planned_id: newsletter_subscription_and_engagement
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Event Participation and Feedback
+  planned_id: event_participation_and_feedback
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Influencer Engagement and Reach
+  planned_id: influencer_engagement_and_reach
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Communication KPIs
+  kpi: Crisis Communication Effectiveness
+  planned_id: crisis_communication_effectiveness
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Feature Usage and Engagement
+  planned_id: feature_usage_and_engagement
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: User Retention Rates
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Player Lifetime Duration
+  planned_id: player_duration_n
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: New Content Adoption Rate
+  planned_id: new_content_adoption_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Player Satisfaction and NPS (Net Promoter Score)
+  planned_id: player_satisfaction_and_nps
+  owner: games-social-listening
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Churn Rate
+  planned_id: churn_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Update and Patch Deployment Success
+  planned_id: update_and_patch_deployment_success
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Player Progression Metrics
+  planned_id: player_progression_metrics
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Monetization Efficiency
+  planned_id: monetization_efficiency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Cross-Platform Performance
+  planned_id: cross_platform_performance
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Accessibility and Inclusivity Metrics
+  planned_id: accessibility_and_inclusivity_metrics
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Product KPIs
+  kpi: Player Onboarding Effectiveness
+  planned_id: player_onboarding_effectiveness
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Average Revenue Per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Average Revenue Per Paying User (ARPPU)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Average Revenue Per Daily Active User (ARPDAU)
+  planned_id: average_revenue_per_daily_active_user
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: In-Game Store Revenue
+  planned_id: in_game_store_revenue
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Sales Growth
+  planned_id: sales_growth
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Lifetime Value to Customer Acquisition Cost Ratio (LTV
+  planned_id: lifetime_value_to_customer_acquisition_cost_ratio_ltv
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Player Retention Cost
+  planned_id: player_retention_cost
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Promotional Campaign ROI
+  planned_id: promotional_campaign_roi
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Battle Pass Sales Performance
+  planned_id: battle_pass_sales_performance
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Content Monetization Efficiency
+  planned_id: content_monetization_efficiency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game-Centric Financial KPIs
+  kpi: Revenue Share from Different Platforms
+  planned_id: revenue_share_from_different_platforms
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Accessibility Feature Usage
+  planned_id: accessibility_feature_usage
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Player Feedback on Accessibility
+  planned_id: player_feedback_on_accessibility
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Completion Rates by Players Using Accessibility Features
+  planned_id: completion_rates_by_players_using_accessibility_features
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Tutorial Completion with Accessibility Features
+  planned_id: tutorial_completion_with_accessibility_features
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: In-game Support Requests Related to Accessibility
+  planned_id: in_game_support_requests_related_to_accessibility
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Time Spent Adjusting Accessibility Settings
+  planned_id: time_spent_adjusting_accessibility_settings
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Engagement Metrics of Players Using Accessibility Features
+  planned_id: engagement_metrics_of_players_using_accessibility_features
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Drop-off Points for Players Using Accessibility Features
+  planned_id: drop_off_points_for_players_using_accessibility_features
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Accessibility Feature Discovery Rate
+  planned_id: accessibility_feature_discovery_rate
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Conversion Rate of Players Using Accessibility Features
+  planned_id: conversion_rate_of_players_using_accessibility_features
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Community Engagement Concerning Accessibility Discussions
+  planned_id: community_engagement_concerning_accessibility_discussions
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Accessibility KPIs
+  kpi: Customization Options Usage
+  planned_id: customization_options_usage
+  owner: games-onboarding-ftue
+  category: game_design
+  phase: 4
+  status: backlog
+  note: No accessibility agent in the plan; parked with Onboarding & FTUE until one is decided
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Report Rate
+  planned_id: report_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Action Taken Rate
+  planned_id: action_taken_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Repeat Offense Rate
+  planned_id: repeat_offense_rate
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Community Sentiment Score
+  planned_id: community_sentiment_score
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Player Retention Post-Infraction
+  planned_id: player_retention_post_infraction
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Toxicity KPIs
+  kpi: Toxicity Impact on Player Engagement
+  planned_id: toxicity_impact_on_player_engagement
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Cheat Detection Rate
+  planned_id: cheat_detection_rate
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Ban Rate
+  planned_id: ban_rate
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Player Reports of Cheating
+  planned_id: player_reports_of_cheating
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Cheat Type Distribution
+  planned_id: cheat_type_distribution
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Recovery Time Post-Cheating Incident
+  planned_id: recovery_time_post_cheating_incident
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Impact of Anti-Cheat Updates
+  planned_id: impact_of_anti_cheat_updates
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Cheating KPIs
+  kpi: Player Trust Index
+  planned_id: player_trust_index
+  owner: games-anti-cheat
+  category: technical
+  phase: 5
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Average Revenue Per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Average Revenue Per Paying User (ARPPU)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Purchase Frequency
+  planned_id: purchase_frequency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Conversion Rate
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Virtual Goods Sales
+  planned_id: virtual_goods_sales
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Currency Sink vs. Source Ratio
+  planned_id: currency_sink_vs_source_ratio
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Time to First Purchase
+  planned_id: time_to_first_purchase
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: In-Game Economy Health Index
+  planned_id: in_game_economy_health_index
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Player Lifetime Value (LTV)
+  planned_id: player_lifetime_value
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Elasticity of Demand
+  planned_id: elasticity_of_demand
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Retention Rate Post-Monetization
+  planned_id: retention_rate_post_monetization
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: cheat-sheet
+  section: Game Economy KPIs
+  kpi: Item Conversion Rate
+  planned_id: item_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Core Gameplay
+  kpi: First Match Completion Rate
+  planned_id: first_match_completion_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Core Gameplay
+  kpi: Tutorial Dropout Rate
+  planned_id: tutorial_dropout_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Core Gameplay
+  kpi: Time to First Win
+  planned_id: time_to_first_win
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Engagement
+  kpi: DAU Growth Rate
+  planned_id: dau_growth_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Engagement
+  kpi: Login Conversion Rate
+  planned_id: login_conversion_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Engagement
+  kpi: New Player Event Participation
+  planned_id: new_player_event_participation
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Monetization
+  kpi: Introductory Bundle Conversion Rate
+  planned_id: introductory_bundle_conversion_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Monetization
+  kpi: Free-to-Paid Conversion
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Acquisition x Monetization
+  kpi: Revenue from New Players
+  planned_id: revenue_from_new_players
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Progression
+  kpi: Average Time to Unlock First Agent
+  planned_id: average_time_to_unlock_first_agent
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Progression
+  kpi: Mission Completion Rate for New Players
+  planned_id: mission_completion_rate_for_new_players
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Progression
+  kpi: XP Earned per Hour
+  planned_id: xp_earned_per_hour
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Social
+  kpi: Referral Rate
+  planned_id: referral_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Social
+  kpi: Social Media Shares of Game Content
+  planned_id: social_media_shares_of_game_content
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Social
+  kpi: Influencer Impact Score
+  planned_id: influencer_impact_score
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Technical
+  kpi: Server Stability during Peak Onboarding
+  planned_id: server_stability_during_peak_onboarding
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Technical
+  kpi: Crash Rate during First Session
+  planned_id: crash_rate_during_first_session
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Technical
+  kpi: Latency for New Accounts
+  planned_id: latency_for_new_accounts
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Matchmaker
+  kpi: New Player Match Win Rate
+  planned_id: new_player_match_win_rate
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Matchmaker
+  kpi: Skill Gap in Early Matches
+  planned_id: skill_gap_in_early_matches
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Acquisition x Matchmaker
+  kpi: Match Balance Score
+  planned_id: match_balance_score
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Core Gameplay
+  kpi: Tutorial Completion Rate
+  planned_id: tutorial_completion_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Core Gameplay
+  kpi: Core Gameplay Understanding Score
+  planned_id: core_gameplay_understanding_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Core Gameplay
+  kpi: First Match Performance
+  planned_id: first_match_performance
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Engagement
+  kpi: Weekly Active User (WAU) Onboarding Retention
+  planned_id: weekly_active_user_onboarding_retention
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Engagement
+  kpi: Daily Mission Completion Rate
+  planned_id: daily_mission_completion_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Engagement
+  kpi: Early Mode Engagement Rate
+  planned_id: early_mode_engagement_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Monetization
+  kpi: Early Cosmetic Purchase Rate
+  planned_id: early_cosmetic_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Monetization
+  kpi: Battle Pass Starter Conversion
+  planned_id: battle_pass_starter_conversion
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Monetization
+  kpi: Radianite Spending by New Players
+  planned_id: radianite_spending_by_new_players
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Progression
+  kpi: Time to Unlock First Progression Milestone
+  planned_id: time_to_unlock_first_progression_milestone
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Progression
+  kpi: XP per Match for New Players
+  planned_id: xp_per_match_for_new_players
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Progression
+  kpi: Average Level at Day 7
+  planned_id: average_level_at_day_7
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Social
+  kpi: Positive Chat Interaction Rate
+  planned_id: positive_chat_interaction_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Social
+  kpi: Friend Invite Acceptance Rate
+  planned_id: friend_invite_acceptance_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Social
+  kpi: Team Creation Rate
+  planned_id: team_creation_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Technical
+  kpi: Onboarding Crash Rate
+  planned_id: onboarding_crash_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Technical
+  kpi: FPS Stability for Low-End Systems
+  planned_id: fps_stability_for_low_end_systems
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Technical
+  kpi: Support Ticket Volume for Onboarding Issues
+  planned_id: support_ticket_volume_for_onboarding_issues
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Matchmaker
+  kpi: Match Difficulty Rating for New Players
+  planned_id: match_difficulty_rating_for_new_players
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Matchmaker
+  kpi: Opponent Skill Variance
+  planned_id: opponent_skill_variance
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Onboarding x Matchmaker
+  kpi: Placement Accuracy Post-Onboarding
+  planned_id: placement_accuracy_post_onboarding
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Core Gameplay
+  kpi: Mode Engagement Rate
+  planned_id: mode_engagement_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Core Gameplay
+  kpi: Average Matches per Day
+  planned_id: average_matches_per_day
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Core Gameplay
+  kpi: Map Preference Trends
+  planned_id: map_preference_trends
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Engagement
+  kpi: Daily Active Users (DAU)
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Engagement x Engagement
+  kpi: Weekly Active Users (WAU)
+  planned_id: weekly_active_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Engagement
+  kpi: Stickiness (DAU/MAU)
+  planned_id: stickiness_dau_mau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Engagement x Monetization
+  kpi: Revenue per DAU
+  planned_id: arpdau
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Engagement x Monetization
+  kpi: Skin Purchase Rate
+  planned_id: skin_purchase_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Monetization
+  kpi: Conversion from Free-to-Paid Content
+  planned_id: conversion_from_free_to_paid_content
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Progression
+  kpi: Progression Milestone Completion Rate
+  planned_id: progression_milestone_completion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Progression
+  kpi: Average Rank Climb per Week
+  planned_id: average_rank_climb_per_week
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Progression
+  kpi: Time to Rank Advancement
+  planned_id: time_to_rank_advancement
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Social
+  kpi: Group Play Percentage
+  planned_id: group_play_percentage
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Social
+  kpi: Social Feature Engagement Rate
+  planned_id: social_feature_engagement_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Social
+  kpi: Guild/Clan Activity Rate
+  planned_id: guild_clan_activity_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Technical
+  kpi: Crash Rate during Long Sessions
+  planned_id: crash_rate_during_long_sessions
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Technical
+  kpi: Latency in Popular Regions
+  planned_id: latency_in_popular_regions
+  owner: games-network-infrastructure
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Technical
+  kpi: Match Performance Stability
+  planned_id: match_performance_stability
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Matchmaker
+  kpi: Fair Matchmaking Rating
+  planned_id: fair_matchmaking_rating
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Matchmaker
+  kpi: Match Length Variance
+  planned_id: match_length_variance
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Engagement x Matchmaker
+  kpi: Rank Adjustment Accuracy
+  planned_id: rank_adjustment_accuracy
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Core Gameplay
+  kpi: Session Frequency over 30 Days
+  planned_id: session_frequency_over_30_days
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Core Gameplay
+  kpi: Feature Retention Rate
+  planned_id: feature_retention_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Core Gameplay
+  kpi: Gameplay Depth Score
+  planned_id: gameplay_depth_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Engagement
+  kpi: Retention Rate (D7, D30, D90)
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Retention x Engagement
+  kpi: Event Retention Rate
+  planned_id: event_retention_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Engagement
+  kpi: MAU Retention Trend
+  planned_id: mau_retention_trend
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Monetization
+  kpi: Monthly Average Revenue per Paying User (ARPPU)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Retention x Monetization
+  kpi: Seasonal Bundle Retention Impact
+  planned_id: seasonal_bundle_retention_impact
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Monetization
+  kpi: Radianite Sink Efficiency
+  planned_id: radianite_sink_efficiency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Progression
+  kpi: Long-Term Progression Milestone Completion
+  planned_id: long_term_progression_milestone_completion
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Progression
+  kpi: XP Earned Consistency
+  planned_id: xp_earned_consistency
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Progression
+  kpi: Rank Retention Rate
+  planned_id: rank_retention_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Social
+  kpi: Friend Matchmaking Frequency
+  planned_id: friend_matchmaking_frequency
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Social
+  kpi: Long-Term Social Connection Retention Rate
+  planned_id: long_term_social_connection_retention_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Social
+  kpi: Voice/Chat Usage Retention
+  planned_id: voice_chat_usage_retention
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Technical
+  kpi: Average Technical Issue Recurrence Rate
+  planned_id: average_technical_issue_recurrence_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Technical
+  kpi: Bug Fix Velocity
+  planned_id: bug_fix_velocity
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Technical
+  kpi: Long-Term FPS Stability
+  planned_id: long_term_fps_stability
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Matchmaker
+  kpi: Retention after Loss Streaks
+  planned_id: retention_after_loss_streaks
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Matchmaker
+  kpi: Skill Parity Over Time
+  planned_id: skill_parity_over_time
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Retention x Matchmaker
+  kpi: Long-Term Matchmaking Fairness
+  planned_id: long_term_matchmaking_fairness
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Core Gameplay
+  kpi: Impact of Gameplay Enjoyment on MTX Spend
+  planned_id: impact_of_gameplay_enjoyment_on_mtx_spend
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Core Gameplay
+  kpi: Cosmetic Appeal Score
+  planned_id: cosmetic_appeal_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Core Gameplay
+  kpi: Average Session Spend
+  planned_id: average_session_spend
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Engagement
+  kpi: Monetization Engagement through Events
+  planned_id: monetization_engagement_through_events
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Engagement
+  kpi: Purchase Frequency Linked to Daily/Weekly Play
+  planned_id: purchase_frequency_linked_to_daily_weekly_play
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Engagement
+  kpi: Time-Limited Content Conversion
+  planned_id: time_limited_content_conversion
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Monetization
+  kpi: Average Revenue per User (ARPU)
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: game-analytics-matrix
+  section: Monetization x Monetization
+  kpi: Conversion Rate for Time-Limited Skins
+  planned_id: conversion_rate_for_time_limited_skins
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Monetization
+  kpi: Average MTX Spend per Tier
+  planned_id: average_mtx_spend_per_tier
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Progression
+  kpi: XP Boost Purchase Rate
+  planned_id: xp_boost_purchase_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Progression
+  kpi: Premium Battle Pass Conversion Rate
+  planned_id: premium_battle_pass_conversion_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Progression
+  kpi: Spending Correlation with Progression Unlocks
+  planned_id: spending_correlation_with_progression_unlocks
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Social
+  kpi: Co-Op Purchases Rate
+  planned_id: co_op_purchases_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Social
+  kpi: Spending Influence from Friends
+  planned_id: spending_influence_from_friends
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Social
+  kpi: Social Media Share Impact on Revenue
+  planned_id: social_media_share_impact_on_revenue
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Technical
+  kpi: Refund Rate
+  planned_id: refund_rate
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: built
+- source: game-analytics-matrix
+  section: Monetization x Technical
+  kpi: Revenue Loss due to Technical Issues
+  planned_id: revenue_loss_due_to_technical_issues
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Technical
+  kpi: Purchase Session Stability
+  planned_id: purchase_session_stability
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Matchmaker
+  kpi: Spending Correlation with Match Outcomes
+  planned_id: spending_correlation_with_match_outcomes
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Matchmaker
+  kpi: Competitive Purchases by Ranked Players
+  planned_id: competitive_purchases_by_ranked_players
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Monetization x Matchmaker
+  kpi: Influence of Fairness on Spending
+  planned_id: influence_of_fairness_on_spending
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Core Gameplay
+  kpi: Gameplay Highlight Sharing Rate
+  planned_id: gameplay_highlight_sharing_rate
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Core Gameplay
+  kpi: Content Creation Metrics
+  planned_id: content_creation_metrics
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Core Gameplay
+  kpi: Player Recommendation Score
+  planned_id: player_recommendation_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Engagement
+  kpi: Community Event Participation for Advocates
+  planned_id: community_event_participation_for_advocates
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Engagement
+  kpi: Referral Conversion Rate
+  planned_id: referral_conversion_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Engagement
+  kpi: Advocate Retention Rate
+  planned_id: advocate_retention_rate
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Monetization
+  kpi: Spending Linked to Advocacy-Exclusive Rewards
+  planned_id: spending_linked_to_advocacy_exclusive_rewards
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Monetization
+  kpi: Revenue from Advocate-Driven Referrals
+  planned_id: revenue_from_advocate_driven_referrals
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Monetization
+  kpi: Spending by Advocates
+  planned_id: spending_by_advocates
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Progression
+  kpi: Advocacy Driven by Rare Achievements
+  planned_id: advocacy_driven_by_rare_achievements
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Progression
+  kpi: Progression Milestone Visibility
+  planned_id: progression_milestone_visibility
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Progression
+  kpi: Ranked Milestone Sharing Frequency
+  planned_id: ranked_milestone_sharing_frequency
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Social
+  kpi: Social Media Engagement Rate
+  planned_id: social_media_engagement_rate
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Social
+  kpi: Guild Contribution Metrics
+  planned_id: guild_contribution_metrics
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Social
+  kpi: Influence of Streaming on Player Acquisition
+  planned_id: influence_of_streaming_on_player_acquisition
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Technical
+  kpi: Advocate Support Requests
+  planned_id: advocate_support_requests
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Technical
+  kpi: Technical Praise Metrics (e.g., smoothness, polish)
+  planned_id: technical_praise_metrics
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Technical
+  kpi: FPS Stability Advocacy Feedback
+  planned_id: fps_stability_advocacy_feedback
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Matchmaker
+  kpi: Matchmaking Fairness Impact on Advocacy
+  planned_id: matchmaking_fairness_impact_on_advocacy
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Matchmaker
+  kpi: Ranked Game Advocacy
+  planned_id: ranked_game_advocacy
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Advocacy x Matchmaker
+  kpi: Team-Based Advocacy Growth
+  planned_id: team_based_advocacy_growth
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Core Gameplay
+  kpi: Dropout Rate for Core Gameplay
+  planned_id: dropout_rate_for_core_gameplay
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Core Gameplay
+  kpi: Gameplay Repetition Score
+  planned_id: gameplay_repetition_score
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Core Gameplay
+  kpi: Last Session Features Played
+  planned_id: last_session_features_played
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Engagement
+  kpi: Session Decline Pre-Churn
+  planned_id: session_decline_pre_churn
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Engagement
+  kpi: Churn Correlation with Event Absence
+  planned_id: churn_correlation_with_event_absence
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Engagement
+  kpi: Login Dropoff Post-Event
+  planned_id: login_dropoff_post_event
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Monetization
+  kpi: Dropoff Rate for Paying Players
+  planned_id: dropoff_rate_for_paying_players
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Monetization
+  kpi: Frustration with Monetization Systems
+  planned_id: frustration_with_monetization_systems
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Monetization
+  kpi: MTX Abandonment Rate
+  planned_id: mtx_abandonment_rate
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Progression
+  kpi: Completion Abandonment for Progression Goals
+  planned_id: completion_abandonment_for_progression_goals
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Progression
+  kpi: XP Burnout Rate
+  planned_id: xp_burnout_rate
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Progression
+  kpi: Rank Plateau Contribution to Churn
+  planned_id: rank_plateau_contribution_to_churn
+  owner: games-progression
+  category: game_design
+  phase: 4
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Social
+  kpi: Team Abandonment Trends
+  planned_id: team_abandonment_trends
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Social
+  kpi: Churn due to Toxic Behavior
+  planned_id: churn_due_to_toxic_behavior
+  owner: games-community-health
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Social
+  kpi: Voice/Text Chat Complaint Metrics
+  planned_id: voice_text_chat_complaint_metrics
+  owner: games-social-systems
+  category: social
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Technical
+  kpi: Technical Feedback Correlation with Churn
+  planned_id: technical_feedback_correlation_with_churn
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Technical
+  kpi: Crash Rate in Final Weeks
+  planned_id: crash_rate_in_final_weeks
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Technical
+  kpi: Technical Issues Before Final Sessions
+  planned_id: technical_issues_before_final_sessions
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Matchmaker
+  kpi: Last Match Fairness Score
+  planned_id: last_match_fairness_score
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Matchmaker
+  kpi: Loss Streak Pre-Churn Metrics
+  planned_id: loss_streak_pre_churn_metrics
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: game-analytics-matrix
+  section: Churn x Matchmaker
+  kpi: Churn Correlation with Unfair Matches
+  planned_id: churn_correlation_with_unfair_matches
+  owner: games-matchmaking
+  category: game_design
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: DAU
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: DAU (New Vs. Returning)
+  planned_id: dau_new_vs_returning
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: DAU (split by Acquisition Campaign)
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: DAU (split by Acquisition Publisher)
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: DAU vs. MAU
+  planned_id: stickiness_dau_mau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: MAU (calendar)
+  planned_id: mau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: MAU (rolling 30 days)
+  planned_id: mau_rolling
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: New Users
+  planned_id: new_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: New Users (split by Acquisition Campaign)
+  planned_id: new_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: New Users (split by Acquisition Publisher)
+  planned_id: new_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: New Users grouped by Country
+  planned_id: new_users_grouped_by_country
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: Retention
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: Returning Users
+  planned_id: returning_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: Returning Users grouped by Country
+  planned_id: returning_users_grouped_by_country
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: Returning Users split by Days since install
+  planned_id: returning_users_split_by_days_since_install
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: Users grouped by New and Returning
+  planned_id: users_grouped_by_new_and_returning
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: WAU (calendar)
+  planned_id: wau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: WAU (rolling 7 days)
+  planned_id: wau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: iOS Users (group by consent status)
+  planned_id: ios_users
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Engagement
+  kpi: iOS Users Consent Authorized
+  planned_id: ios_users_consent_authorized
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: ARPDAU (IAP) (legacy)
+  planned_id: arpdau
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: ARPPU
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: ARPU
+  planned_id: arpu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Conversion rate
+  planned_id: payer_conversion_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Converted users
+  planned_id: payer_conversion_cohort_day_n
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Converting users
+  planned_id: converting_users
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Cumulative Revenue per User
+  planned_id: cumulative_revenue_per_user
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: First transaction count
+  planned_id: first_transaction_count
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: First transaction revenue
+  planned_id: first_transaction_revenue
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Paying users
+  planned_id: paying_users
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Revenue (IAP)
+  planned_id: revenue
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Business (IAP)
+  kpi: Transaction count
+  planned_id: transaction_count
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Critical error per session
+  planned_id: critical_error_per_session
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Critical error per session by build
+  planned_id: critical_error_per_session_by_build
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Critical error per user
+  planned_id: critical_error_per_user
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+  correction: 'handoff: GameAnalytics describes it per unique session; it is per user'
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Critical error per user by builds
+  planned_id: critical_error_per_user_by_builds
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Error by type
+  planned_id: error_by_type
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Error split by type
+  planned_id: error_split_by_type
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Error users
+  planned_id: error_users
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Error users by type
+  planned_id: error_users_by_type
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Errors by device
+  planned_id: errors_by_device
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Error
+  kpi: Errors per user
+  planned_id: errors_per_user
+  owner: games-performance-stability
+  category: technical
+  phase: 5
+  status: backlog
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Ads clicked
+  planned_id: ads_clicked
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Ads clicked per session
+  planned_id: ads_clicked_per_session
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Ads clicked per user
+  planned_id: ads_clicked_per_user
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  correction: 'handoff: GameAnalytics describes it per session; it is per user'
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Ads shown per session
+  planned_id: ads_shown_per_session
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Ads shown per user
+  planned_id: ads_shown_per_user
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Total Ads display failed
+  planned_id: total_ads_display_failed
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Ads
+  kpi: Total Ads shown
+  planned_id: total_ads_shown
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Design (custom)
+  kpi: Custom event count per session
+  planned_id: custom_event_count_per_session
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Design (custom)
+  kpi: Custom event count per user
+  planned_id: custom_event_count_per_user
+  owner: games-core-gameplay
+  category: game_design
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Count Per DAU
+  planned_id: ilrd_count_per_dau
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Count by SDK Vendor
+  planned_id: ilrd_count_by_sdk_vendor
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Count by network name
+  planned_id: ilrd_count_by_network_name
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue
+  planned_id: ilrd_revenue
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue by ad format
+  planned_id: ilrd_revenue_by_ad_format
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue by network name
+  planned_id: ilrd_revenue_by_network_name
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue by placement
+  planned_id: ilrd_revenue_by_placement
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue per active user
+  planned_id: ilrd_revenue_per_active_user
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue per impression
+  planned_id: ilrd_revenue_per_impression
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue per user
+  planned_id: ilrd_revenue_per_user
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Impression
+  kpi: ILRD Revenue split by placement
+  planned_id: ilrd_revenue_split_by_placement
+  owner: games-monetization
+  category: commercial
+  phase: 6
+  status: backlog
+  note: 'Ads ship with the mobile profile (plan: ads in Monetization, phase 6)'
+- source: gameanalytics-metrics
+  section: Progression (levels)
+  kpi: Level attempts started
+  planned_id: level_attempts_started
+  owner: games-core-gameplay
+  category: game_design
+  phase: 6
+  status: backlog
+  note: Puzzle and level metrics ship with the daily-habit profile (phase 6)
+- source: gameanalytics-metrics
+  section: Progression (levels)
+  kpi: Level attempts failed
+  planned_id: level_attempts_failed
+  owner: games-core-gameplay
+  category: game_design
+  phase: 6
+  status: backlog
+  note: Puzzle and level metrics ship with the daily-habit profile (phase 6)
+- source: gameanalytics-metrics
+  section: Progression (levels)
+  kpi: Level attempts completed
+  planned_id: level_attempts_completed
+  owner: games-core-gameplay
+  category: game_design
+  phase: 6
+  status: backlog
+  note: Puzzle and level metrics ship with the daily-habit profile (phase 6)
+- source: gameanalytics-metrics
+  section: Progression (levels)
+  kpi: Win percentage
+  planned_id: win_percentage
+  owner: games-core-gameplay
+  category: game_design
+  phase: 6
+  status: backlog
+  correction: 'handoff: excludes quits and abandons; add a companion metric that counts abandons'
+  note: Puzzle and level metrics ship with the daily-habit profile (phase 6)
+- source: gameanalytics-metrics
+  section: Resource
+  kpi: Flow (sum) of Virtual Currency group by Currency
+  planned_id: flow_of_virtual_currency_group_by_currency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Resource
+  kpi: Flow (sum) of Virtual Currency split by Currency
+  planned_id: flow_of_virtual_currency_split_by_currency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Resource
+  kpi: Virtual Currency Earn (source) split by Currency
+  planned_id: virtual_currency_earn_split_by_currency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Resource
+  kpi: Virtual Currency Spend (sink) split by Currency
+  planned_id: virtual_currency_spend_split_by_currency
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Sessions (playtime)
+  kpi: Session Count (started)
+  planned_id: session_count
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Sessions (playtime)
+  kpi: Cumulative Playtime per user
+  planned_id: cumulative_playtime_per_user
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Sessions (playtime)
+  kpi: Playtime per session
+  planned_id: playtime_per_session
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Sessions (playtime)
+  kpi: Playtime per user
+  planned_id: playtime_per_user
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: gameanalytics-metrics
+  section: Sessions (playtime)
+  kpi: Session Count (ended)
+  planned_id: session_count
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Key Monetization KPIs by Player Segment
+  kpi: ARPPU (Average Revenue Per Paying User)
+  planned_id: arppu_period
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'handoff: IAP-only and gross; label revenue scope, keep ad revenue (ILRD) separate'
+- source: 2k-doc
+  section: Key Monetization KPIs by Player Segment
+  kpi: Conversion Rate by segment
+  planned_id: conversion_rate_by_segment
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Key Monetization KPIs by Player Segment
+  kpi: LTV (Lifetime Value)
+  planned_id: ltv_h
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: 2k-doc
+  section: Key Monetization KPIs by Player Segment
+  kpi: Churn Rate for Payers
+  planned_id: churn_rate_for_payers
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Key Monetization KPIs by Player Segment
+  kpi: Spender Retention (season over season)
+  planned_id: spender_retention
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Retention & Monetization KPIs That Move Together
+  kpi: D1, D7, D30 Retention
+  planned_id: retention_dn_strict
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: 2k-doc
+  section: Retention & Monetization KPIs That Move Together
+  kpi: Session Length & Frequency
+  planned_id: session_length_and_frequency
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Retention & Monetization KPIs That Move Together
+  kpi: Purchase Timing (Days Since Install)
+  planned_id: purchase_timing
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: backlog
+- source: 2k-doc
+  section: Retention & Monetization KPIs That Move Together
+  kpi: Payer Retention
+  planned_id: retention_dn_strict_payers
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+- source: 2k-doc
+  section: Revenue = DAU x ARPDAU
+  kpi: DAU
+  planned_id: dau
+  owner: games-engagement-growth
+  category: commercial
+  phase: 3
+  status: built
+- source: 2k-doc
+  section: Revenue = DAU x ARPDAU
+  kpi: ARPDAU
+  planned_id: arpdau
+  owner: games-monetization
+  category: commercial
+  phase: 3
+  status: built
+  correction: 'plan #8: Revenue = DAU x ARPDAU is an identity; use the revenue bridge'

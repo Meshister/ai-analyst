@@ -1,0 +1,38 @@
+schema_version: 1
+
+name: units_sold
+display_name: "Units sold (net)"
+aliases: [units, net units, sell-through]
+definition: >-
+  Base-game units sold for a title in a period, net of refunded units, counted
+  once per purchase whatever edition or bundle it came in.
+grain: title_platform_day
+status: draft
+owner: games-premium-sales
+min_value: 0
+caveats:
+  - "Editions and bundles count one base-game unit each; the DLC inside a deluxe edition is not a separate DLC sale. Counting both double-counts."
+  - "Cross-gen upgrade SKUs, cross-buy entitlements, free giveaways and subscription-service plays are not units sold; report them separately."
+  - "Platform statements lag and restate; refunds land after the sale, so recent days are provisional."
+
+formula: "units_t = base_game_units_sold_t - base_game_units_refunded_t (refunds attributed to the original sale date)"
+day_boundary:
+  supported: [reporting_tz, utc]
+  default: reporting_tz
+maturity_rule: >-
+  null until the platform statement covering day d has posted. Provisional until
+  the platform's refund window for day d's sales has closed; label as provisional.
+retention_type: not_applicable
+revenue_scope: not_applicable
+payer_window: not_applicable
+identity_basis: not_applicable
+tags:
+  family: customer
+  scope: generic
+  horizon: [strategic, tactical, operational]
+  business_model: [premium_one_off, premium_live]
+  platform: [console, pc, mobile]
+distinct_from: [net_revenue_title, activation_rate]
+sources:
+  - ref: games-analyst-plan
+    note: "Premium one-off profile traps: editions and bundles double-counted; subscription plays counted as sales. Draft: no reference doc covers premium catalog metrics."
